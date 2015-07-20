@@ -32,10 +32,17 @@ layout: default
                 <ul class="pager">
                 {% assign posts = site.posts | sort:"path" %}
                 {% for post in posts %}
+                <h1>post: {{ post.title }}</h1>
                     {% if post.tags[0] == page.tags[0] %}
+                        <h1>tags: {{ post.tags[0] }}</h1>
+
                         {% if forloop.index0 < page.index %}
+                            <h1>prev: {{ page.title }}</h1>
+
                             {% assign previousPost = post %}
                         {% elsif forloop.index0 > page.index %}
+                            <h1>post: {{ page.title }}</h1>
+
                             {% assign nextPost = post %}
                             {% break %}
                         {% endif %}
