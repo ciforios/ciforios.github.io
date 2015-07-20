@@ -1,0 +1,20 @@
+---
+layout:     post
+title:      "Where the journey began"
+subtitle:   "Our Vision"
+date:       2015-04-24 11:20:00
+author:     "The crew"
+header-img: "img/post-bg-04.jpg"
+---
+
+Context Idee & Ziele, geplante Pipeline aufführen, top-level Konzept - hier noch weniger technisch) + Environment
+
+#THE CHALLENGE
+Once upon a time students are faced with lectures
+
+
+#Our aim
+
+#Our plan
+
+#Environment

@@ -1,0 +1,76 @@
+---
+layout:     post
+title:      "Continuous Integration with Jenkins"
+subtitle:   "How to how to"
+date:       2015-05-25 12:00:00
+author:     "The crew"
+header-img: "img/post-bg-06.jpg"
+---
+
+Within this page we will describe how we set up Jenkins on our Mac to meet our requirements. 
+![alt text]({{ site.url }}/img/jenkins/jenkinsLogo.png)
+
+
+###Setup
+- Download war file from http://jenkins-ci.org/ -> version 1.620
+- Create Jenkins folder in Application und move war file there
+<br />Hint: *Jenkins requires Java7 or later*. 
+<br />Download from https://www.java.com/de/download/mac_download.jsp*
+<br />1. Install Java from pkg. Oracle's installer puts java inside the /Library/Internet Plug-Ins/JavaAppletPlugin.plugin. And it doesn't overwrite /usr/bin/java
+<br />2. Check java version in terminal -> java -version 
+<br />3. It won't be set to latest java version. Do following:
+  * ```sudo rm /usr/bin/java``` -> Remove old symbol link (points to /System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java, which is Apple's 1.6 version)
+  * ```sudo ln -s /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java /usr/bin``` -> Replace /usr/bin/java symlink
+- Start Jenkins via: ```java -jar /Applications/Jenkins/jenkins.war &```
+  * Open Jenkins via Webfrontend: [http://localhost:8080/](http://localhost:8080/)
+
+#### Configuration
+- Optional: Create user
+
+
+###Security settings
+
+For default usage no login is required
+Following changes has been made:
+- Manage Jenkins->Global Security->Enable Security: 
+     - Security Realm has been activated. Jenkins own user database (with allow users to signup)
+     - Authorization: Logged-in users can do anything
+Remark: If you don't add security realm it will cause an error "/j_acegi_security_check"
+
+- Save changes
+
+
+
+###Plugins
+Install following plugins listed below. Therefore go to Manage Jenkins -> Manage Plugins. In this overview table select the tab "Available". Once those plugins selected, click on the button "Download now and install after restart"
+
+
+Slack plugin: [https://wiki.jenkins-ci.org/display/JENKINS/Slack+Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Slack+Plugin)
+
+***
+
+GIT Plugin: [https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin)
+
+***
+Gerrit Trigger: [https://wiki.jenkins-ci.org/display/JENKINS/Gerrit+Trigger](https://wiki.jenkins-ci.org/display/JENKINS/Gerrit+Trigger)
+
+Configure Plugin in Manage Jenkins->Gerrit Trigger
+     - Add new server
+     - Frontend URL: http://192.168.8.10:8081/
+     - SSH Port: 29418
+     - Username: jenkins (Need to be added to Gerrit as a new user with admin rights)
+       Using old hdm account from yannik with badgme1
+     - SSH Keyfile and password. Generated ssh file for Jenkins
+
+***
+XCode Integration: [https://wiki.jenkins-ci.org/display/JENKINS/Xcode+Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Xcode+Plugin)
+
+
+
+###Jobs
+For creating a new job, select new item on the left side. 
+
+####Build and test job
+
+
+####Build and upload to master branch job
