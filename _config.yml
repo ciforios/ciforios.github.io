@@ -1,8 +1,8 @@
 # Site settings
-title: Continious Integration for iOS
+title: Continuous Integration for iOS
 header-img: img/home-bg.jpg
 email: mkalla@gmx.net
-description: "Continious Integration for iOS - Setting up your system"
+description: "Continuous Integration for iOS - Setting up your system"
 baseurl: ""
 url: "http://ciforios.github.io"
 twitter_username: ciforios
