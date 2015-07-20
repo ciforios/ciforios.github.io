@@ -17,5 +17,3 @@ permalink: pretty
 paginate: 5
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 include: ["lessons-learned.html"]
-gems:
-- post_index_generator
