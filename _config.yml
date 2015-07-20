@@ -1,5 +1,6 @@
 # Site settings
 title: Continuous Integration for iOS
+organisation: ciforios
 header-img: img/home-bg.jpg
 email: mkalla@gmx.net
 description: "Continuous Integration for iOS - Setting up your system"
@@ -15,3 +16,4 @@ highlighter: pygments
 permalink: pretty
 paginate: 5
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+include: ["lessons-learned.html"]

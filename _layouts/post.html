@@ -30,15 +30,27 @@ layout: default
                 <hr>
 
                 <ul class="pager">
-                    {% if page.previous.url %}
-                    <li class="previous">
-                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
-                    </li>
+                {% assign posts = site.posts | sort:"path" %}
+                {% for post in posts %}
+                    {% if post.tags[0] == page.tags[0] %}
+                        {% if forloop.index0 < page.index %}
+                            {% assign previousPost = post %}
+                        {% elsif forloop.index0 > page.index %}
+                            {% assign nextPost = post %}
+                            {% break %}
+                        {% endif %}
                     {% endif %}
-                    {% if page.next.url %}
-                    <li class="next">
-                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
-                    </li>
+                {% endfor %}
+
+                    {% if previousPost %}
+                        <li class="previous">
+                            <a href="{{ previousPost.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{previousPost.title}}">&larr; Previous Post</a>
+                        </li>
+                    {% endif %}
+                    {% if nextPost %}
+                        <li class="next">
+                            <a href="{{ nextPost.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{nextPost.title}}">Next Post &rarr;</a>
+                        </li>
                     {% endif %}
                 </ul>
 
