@@ -18,8 +18,7 @@ header-img: "img/post-bg-06.jpg"
   * ```sudo rm /usr/bin/java``` -> Remove old symbol link (points to /System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java, which is Apple's 1.6 version)
   * ```sudo ln -s /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java /usr/bin``` -> Replace /usr/bin/java symlink
 - Start Jenkins via: ```java -jar /Applications/Jenkins/jenkins.war &```
-  * Open Jenkins via Webfrontend: [http://localhost:8080/]
-[http://localhost:8080/]: http://localhost:8080/
+  * Open Jenkins via Webfrontend: [http://localhost:8080/](http://localhost:8080/)
 
 #### Configuration
 - Optional: Create user
@@ -42,14 +41,14 @@ Remark: If you don't add security realm it will cause an error "/j_acegi_securit
 Install following plugins listed below. Therefore go to Manage Jenkins -> Manage Plugins. In this overview table select the tab "Available". Once those plugins selected, click on the button "Download now and install after restart"
 
 
-Slack plugin: https://wiki.jenkins-ci.org/display/JENKINS/Slack+Plugin
+Slack plugin: [https://wiki.jenkins-ci.org/display/JENKINS/Slack+Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Slack+Plugin)
 
 ***
 
-GIT Plugin: https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin
+GIT Plugin: [https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin)
 
 ***
-Gerrit Trigger: https://wiki.jenkins-ci.org/display/JENKINS/Gerrit+Trigger
+Gerrit Trigger: [https://wiki.jenkins-ci.org/display/JENKINS/Gerrit+Trigger](https://wiki.jenkins-ci.org/display/JENKINS/Gerrit+Trigger)
 
 Configure Plugin in Manage Jenkins->Gerrit Trigger
      - Add new server
@@ -60,7 +59,7 @@ Configure Plugin in Manage Jenkins->Gerrit Trigger
      - SSH Keyfile and password. Generated ssh file for Jenkins
 
 ***
-XCode Integration: https://wiki.jenkins-ci.org/display/JENKINS/Xcode+Plugin
+XCode Integration: [https://wiki.jenkins-ci.org/display/JENKINS/Xcode+Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Xcode+Plugin)
 
 
 
