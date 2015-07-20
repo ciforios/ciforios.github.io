@@ -5,6 +5,7 @@ subtitle:   "How to how to"
 date:       2015-05-25 12:00:00
 author:     "The crew"
 header-img: "img/post-bg-06.jpg"
+tags: [jenkins]
 ---
 
 Within this page we will describe how we set up Jenkins on our Mac to meet our requirements. 

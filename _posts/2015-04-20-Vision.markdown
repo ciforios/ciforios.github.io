@@ -5,6 +5,7 @@ subtitle:   "Our Vision"
 date:       2015-04-24 11:20:00
 author:     "The crew"
 header-img: "img/post-bg-04.jpg"
+tags: [vision]
 ---
 
 Context Idee & Ziele, geplante Pipeline aufführen, top-level Konzept - hier noch weniger technisch) + Environment
