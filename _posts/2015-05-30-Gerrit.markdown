@@ -154,21 +154,21 @@ Patch Sets need +2 "Code-Review" and +1 "Verified"
 ### Pushing commits to gerrit for reviewing
 To create reviews:
 Install git-review on your mac (for installation on other operating systems see: http://www.mediawiki.org/wiki/Gerrit/git-review)
-```bash
+{% highlight bash %}
 brew install git-review
-```
+{% endhighlight %}
 
 Rename the remote path of your gerrit folder to gerrit:
-```bash
+{% highlight bash %}
 git remote rename origin gerrit
-```
+{% endhighlight %}
 
 //Do your changes<br/>
 //commit your changes<br/>
 Push your changes to gerrit with git review. You can find the account information you have to enter after entering the following command, in your gerrit profile -> http login
-```bash
+{% highlight bash %}
 git review [BRANCH]
-```
+{% endhighlight %}
 
 ###Gerrit and Branches
 The branch to push to can be specified when submitting reviews.<br/>
