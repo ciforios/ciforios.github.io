@@ -5,7 +5,7 @@ subtitle:   "Setting Up a Continuous Integration Pipeline for iOS Development"
 date:       2015-04-24 11:20:00
 author:     "The Crew"
 header-img: "img/post-bg-04.jpg"
-tags: [vision]
+tags: [introduction]
 ---
 
 This website might be particularly interesting for you if you're already involved with continuous integration or if you're trying to get your own project started from scratch. Also, if you just need to get to know the things that affect continuous integration in the iOS context, this website should provide you with all the necessary tools you'll need to get your project up and running.
@@ -17,9 +17,6 @@ The inital idea to create this website was to give fellow developers some inform
 - Automated Testing
 - Automated Building
 - Automated distribution of Beta-Software
-
-This is what the workflow should look like in the end:
-![Workflow image]({{ site.url }}/img/workflow-master.jpg)
 
 This was our guideline before we had any clue whatsoever, about how any of these systems worked (both separately and in conjunction as a whole). Our concept was to do things in a way, we thought was supposed to be the "right" way when developing a fairly big-sized software project. Reading this documentation of our progress should hopefully prevent you from running into some of the bigger problems you might encounter trying to set up a similiar pipeline for yourself.
 
