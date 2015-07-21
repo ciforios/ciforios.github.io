@@ -168,15 +168,21 @@ Install git-review on your mac
 (for installation on other operating systems see: http://www.mediawiki.org/wiki/Gerrit/git-review)
 
 Rename the remote path of your gerrit folder to gerrit:
-
-	git remote rename origin gerrit
+{% highlight bash %}
+git remote rename origin gerrit
+{% endhighlight %}
 #####Creating "PatchSets" (commits that others should review):
-//Do your changes<br/>
-//commit your changes<br/>
-Push your changes to gerrit with git review. You can find the account information you have to enter after entering the following command, in your gerrit profile -> http login
+//Make your changes<br/>
+//commit your changes (git commit ...) <br/>
+
+Push your changes to gerrit with git review. 
 {% highlight bash %}
 git review [BRANCH]
 {% endhighlight %}
+>you can also put your current working branch in the ".gitreview" file. E.g. defaultbranch=dev
+
+For more information about git review see:<br>
+[https://www.mediawiki.org/wiki/Gerrit/git-review](https://www.mediawiki.org/wiki/Gerrit/git-review)
 
 ###Gerrit and Branches
 The branch to push to can be specified when submitting reviews.<br/>
