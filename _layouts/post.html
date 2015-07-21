@@ -26,10 +26,8 @@ layout: default
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
 				{{ content }}
-
-                <hr>
+             
                 <ul class="pager">
-
                 {% assign posts = site.posts | sort:"path" %}
                 {% assign isPrevious = true %}
                 
@@ -59,6 +57,18 @@ layout: default
                     </li>
                     {% endif %}
                 </ul>
+
+                <hr>
+                <h4>Related Posts</h4>
+                <ul>
+                {% for post in posts %}
+                    {% if post.tags[0] == page.tags[0] %}
+                    <li><a href="{{post.url}}"> {{ post.title }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+
+                <hr>
             </div>
         </div>
     </div>
