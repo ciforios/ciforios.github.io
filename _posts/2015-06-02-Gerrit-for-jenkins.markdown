@@ -15,6 +15,8 @@ In order to allow jenkins to make changes to projects (review code based on whet
 
 After the user is created, you have to add it to a special group, in our case called "externalReviewers".
 
+You also have to change the project settings accordingly, so that the "externalReviewers" are allowed to set the label (in our case "verified" +1 or -1) accordingly.
+
 
 ####The verified label bug
 
