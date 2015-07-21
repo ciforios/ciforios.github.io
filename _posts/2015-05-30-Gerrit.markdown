@@ -111,27 +111,28 @@ Waiting for server on mrs.mmlab.mintern.mi.hdm-stuttgart.de:8081 ... OK
 Opening http://mrs.mmlab.mintern.mi.hdm-stuttgart.de:8081/#/admin/projects/ ...OK
 {% endhighlight %}
 
-Open the URL in your browser and log in.
+Now the gerrit server should be live and available on the server ip and specified port and on the "Canonical URL" gerrit shows in the end of the setup dialog.
 
-Login:
-Default is OpenID.
+##Login:
+After setting up the server the next thing you will probably want to do is open the Gerrit page and log in (at least that's the first thing we wanted to do^^).
 
-Problem: Only YahooID and LaunchpadID are available (no more Google support)
+>At this point we ran into a little problem:<br>
+>We used the default setting for authentication hoping it was a simple account management. The default being OpenID this was kind of true... The problem was, that Google had just stopped supporting OpenID (1 week before we started the project and switched zo OAuth) and Gerrit didn't support OAuth natively (there is a plugin but we didn't get it runing as fast as we wanted) we decided to create new accounts at one of the pages proposed by Gerrit (some chose Yahoo ID, some Launchpad.net)
 
-Alternatives: Ldap, but needs ldap server
+If you have got access to an ldap server the easiest way to log in is probably using that server (you will have to do the configuration again and choose ldap as authentication method).
 
 > First person who logs in is automatically turned into admin account.
 > Admin can distribute rights to other users.
 
-Permissions:
-Projects -> Access
+##Permissions:
+####Projects -> Access
 Can be set for groups, Project Owners, Admins and Registered Users.
 Permissions include: Who is allowed to Read, Push, Submit changes. 
 In addition it can be defined, how much influence certain groups should have over the reviewing process.
 Permitted users can create Projects.
 
 
-Creating Project:
+####Creating a Project:
 Projects -> Create Project
 
 Enter a project name
@@ -153,11 +154,12 @@ Pushing is prohibited<br>
 Patch Sets need +2 "Code-Review" and +1 "Verified"
 
 ### Pushing commits to gerrit for reviewing
-To create reviews:
-Install git-review on your mac (for installation on other operating systems see: http://www.mediawiki.org/wiki/Gerrit/git-review)
+#####Creating "PatchSets" (commits that others should review):
+Install git-review on your mac 
 {% highlight bash %}
 brew install git-review
 {% endhighlight %}
+(for installation on other operating systems see: http://www.mediawiki.org/wiki/Gerrit/git-review)
 
 Rename the remote path of your gerrit folder to gerrit:
 {% highlight bash %}
@@ -176,13 +178,15 @@ The branch to push to can be specified when submitting reviews.<br/>
 Branches can be created using the Gerrit UI under Projects -> List -> [PROJECT_NAME] -> Branches
 If you create e.g. a dev branch and want to point it to the current Revision of the branch with the name "master" just enter "master" in the Revision field.
 
-## Gerrit Trigger
+## Setting up Gerrit for Jenkins (Gerrit Trigger)
 The Jenkins Plugin "Gerrit Trigger" expects Gerrit to have the label "Verified" set, which is not by default included in the gerrit config.
-The gerrit label can be added in:
-Projects -> List -> All Projects -> General -> Edit Config
+The gerrit label can be added in:<br>
+Projects -> List -> All Projects -> General -> Edit Config<br>
 After adding the Verified Label, it is also necessary to add the permissions for groups to change the verified status of a review.
-Projects -> List -> All Projects -> Access -> Edit
+Projects -> List -> All Projects -> Access -> Edit<br>
 Under the point "Reference: refs/heads/*" hit "Add Permission" and choose "Label Verified". Then add the groups that should be allowed to change the verified state. E.g. Admins and Non-Interactive Users (the group containing Jenkins).
 
-Further info on Gerrit labels see: https://gerrit-review.googlesource.com/Documentation/config-labels.html
-Regarding the Gerrit Trigger "bug" see: https://code.google.com/p/gerrit/issues/detail?id=1963
+Further info on Gerrit labels see: <br>
+[https://gerrit-review.googlesource.com/Documentation/config-labels.html](https://gerrit-review.googlesource.com/Documentation/config-labels.html)<br>
+Regarding the Gerrit Trigger "bug" see: <br>
+[https://code.google.com/p/gerrit/issues/detail?id=1963](https://code.google.com/p/gerrit/issues/detail?id=1963)
