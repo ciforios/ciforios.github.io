@@ -18,6 +18,8 @@ execute
 java -jar gerrit.war init -d path/to/site/folder
 {% endhighlight %}
 
+This will start the initialisation dialog
+
 {% highlight bash %}
 bash-3.2$ java -jar /Applications/Gerrit/gerrit-2.11.war init -d badgeme
 Using secure store: com.google.gerrit.server.securestore.DefaultSecureStore
@@ -152,19 +154,19 @@ Patch Sets need +2 "Code-Review" and +1 "Verified"
 ### Pushing commits to gerrit for reviewing
 To create reviews:
 Install git-review on your mac (for installation on other operating systems see: http://www.mediawiki.org/wiki/Gerrit/git-review)
-```shell
+```bash
 brew install git-review
-````
+```
 
 Rename the remote path of your gerrit folder to gerrit:
-```shell
+```bash
 git remote rename origin gerrit
 ```
 
 //Do your changes<br/>
 //commit your changes<br/>
 Push your changes to gerrit with git review. You can find the account information you have to enter after entering the following command, in your gerrit profile -> http login
-```shell
+```bash
 git review [BRANCH]
 ```
 
