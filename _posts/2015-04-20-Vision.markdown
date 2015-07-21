@@ -21,6 +21,9 @@ The inital idea to create this website was to give fellow developers some inform
 This was our guideline before we had any clue whatsoever, about how any of these systems worked (both separately and in conjunction as a whole). Our concept was to do things in a way, we thought was supposed to be the "right" way when developing a fairly big-sized software project. Reading this documentation of our progress should hopefully prevent you from running into some of the bigger problems you might encounter trying to set up a similiar pipeline for yourself.
 
 #How to use our website
-//TO DO: Check the links
+
+{% highlight %}
+	TO DO: Check the links
+{% endhighlight %}
 
 We'll give you a step by step tutorial for setting up your [**development IDE**] (http://ciforios.github.io/ios/), integrating an [**automated build server**] (http://ciforios.github.io/jenkins/) including [**automated testing**] (http://ciforios.github.io/jenkins/), adding [**code review**] (http://ciforios.github.io/gerrit/) to your project as well as [**deploying your beta software**](http://ciforios.github.io/workflow/) via testflight. But you are also good to go if you don't need a complete tutorial. Feel free if you want to have a look into each step seperately.
