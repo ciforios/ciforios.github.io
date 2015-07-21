@@ -18,8 +18,9 @@ execute
 java -jar gerrit.war init -d path/to/site/folder
 {% endhighlight %}
 
-This will start the initialisation dialog
+This will create the folder you provide in the "-d" argument and start the initialisation dialog. You can run this command again on an already existing gerrit folder to change its configuration.
 
+Below you can see the configuration dialog in our case. We went with the default options in most cases (except the http port to listen on).
 {% highlight bash %}
 bash-3.2$ java -jar /Applications/Gerrit/gerrit-2.11.war init -d badgeme
 Using secure store: com.google.gerrit.server.securestore.DefaultSecureStore
