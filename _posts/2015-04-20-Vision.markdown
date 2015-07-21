@@ -8,9 +8,9 @@ header-img: "img/post-bg-04.jpg"
 tags: [vision]
 ---
 
-This website might be particularly interesting for you if you're already involved with continuous integration or you're trying to get your own project started from scratch. Also, if you just need to get to know the things that affect continuous integration in the iOS context, this website should provide you with all the necessary tools you'll need to get your project up and running.
+This website might be particularly interesting for you if you're already involved with continuous integration or if you're trying to get your own project started from scratch. Also, if you just need to get to know the things that affect continuous integration in the iOS context, this website should provide you with all the necessary tools you'll need to get your project up and running.
 
->This website might be particularly interesting for you if you're either trying to get your own continuous integration project started from scratch or if you are already involved with continuous integration - but not in context of iOS development. Either way - this website should provide you with all the necessary tools you'll need to get your project up and running.
+>This website might be particularly interesting for you if you're either trying to get your own continuous integration project started from scratch or if you are already involved with continuous integration - but not in context of iOS development. Either way - this website should provide you with all the necessary information you'll need to get your project up and running.
 
 #How to use our website
 We'll give you a step by step tutorial for setting up your **development IDE**, integrating an **automated build server** including **automated testing**, adding **code review** to your project as well as **deploying your beta software** via testflight. But you are also good to go if you don't need a complete tutorial. Feel free if you want to have a look into each step seperately.
