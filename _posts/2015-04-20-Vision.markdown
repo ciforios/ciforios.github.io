@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "What Is This All About?"
-subtitle:   "Setting Up a Continuous Integration Pipeline for iOS Development"
+subtitle:   "Setting up a continuous integration pipeline for iOS development"
 date:       2015-04-24 11:20:00
 author:     "The Crew"
 header-img: "img/post-bg-04.jpg"
