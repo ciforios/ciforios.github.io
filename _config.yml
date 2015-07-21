@@ -13,12 +13,10 @@ facebook_username:  ciforios
 # Build settings
 markdown: redcarpet
 redcarpet:
-  extensions: ["smart", "tables", "no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
   highlighter: pygments
 permalink: pretty
 paginate: 5
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 include: ["lessons-learned.html"]
 excerpt_separator: ""
-gems:
-- redcarpet
