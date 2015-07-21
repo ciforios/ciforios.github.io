@@ -26,7 +26,8 @@ layout: default
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
 				{{ content }}
-             
+
+                <hr>
                 <ul class="pager">
                 {% assign posts = site.posts | sort:"path" %}
                 {% assign isPrevious = true %}
@@ -67,8 +68,6 @@ layout: default
                     {% endif %}
                 {% endfor %}
                 </ul>
-
-                <hr>
             </div>
         </div>
     </div>
