@@ -117,12 +117,36 @@ Now the gerrit server should be live and available on the server ip and specifie
 After setting up the server the next thing you will probably want to do is open the Gerrit page and log in (at least that's the first thing we wanted to do^^).
 
 >At this point we ran into a little problem:<br>
->We used the default setting for authentication hoping it was a simple account management. The default being OpenID this was kind of true... The problem was, that Google had just stopped supporting OpenID (1 week before we started the project and switched zo OAuth) and Gerrit didn't support OAuth natively (there is a plugin but we didn't get it runing as fast as we wanted) we decided to create new accounts at one of the pages proposed by Gerrit (some chose Yahoo ID, some Launchpad.net)
+>We used the default setting for authentication hoping it was a simple account management. The default being OpenID this was kind of true... The problem was, that Google had just stopped supporting OpenID (1 week before we started the project and switched zo OAuth) and Gerrit didn't support OAuth natively (there is a [plugin](https://github.com/davido/gerrit-oauth-provider "plugin") but we didn't get it runing as fast as we wanted) we decided to create new accounts at one of the pages proposed by Gerrit (some chose Yahoo ID, some Launchpad.net)
 
-If you have got access to an ldap server the easiest way to log in is probably using that server (you will have to do the configuration again and choose ldap as authentication method).
+If you have access to an ldap server the easiest way to log in is probably using that server (you will have to do the configuration again and choose ldap as authentication method).
 
-> First person who logs in is automatically turned into admin account.
-> Admin can distribute rights to other users.
+> The account of the first person who logs in is automatically turned into admin account.
+> The admin can distribute rights to other users.
+
+
+####Creating a Project:
+Projects -> Create Project
+
+Enter a project name
+>NOTE: Renaming or deleting the repo is not possible in Gerrit (by default), so choose your name wisely or you will be stuck with a repsitory called "firstTestProject"...
+
+Choose the Rights to inherit from<br>
+If this is the first project you can just inherit from the default "all projects". Yo can also create a new project just to serve as a parent for other projects which then inherit the settings of the parent project.
+
+####Cloning the project:
+In projects -> list you should see all of your projects. After clicking on one of them you will see the options page for this project.<br>
+In the Project options page you can see (amongst other settings) the URL to use for cloning the git repository.
+
+
+####Deleting Projects:
+Deleting projects is not possible by default (probably because projects might depend on other projects, so deleting on project in the chain could have severe ramifications for other projects).<br>
+>there is a [plugin](https://gerrit-review.googlesource.com/#/admin/projects/plugins/delete-project) that allows deleting projects, but we just deleted the whole gerrit folder and ran the init comand again 
+
+####Git:
+Internally gerrit sets up a fully functional git repository which you can clone and push reviews to.<br>
+Each project has a unique git url you can see in the project options.
+>if you want to set up git replica on an external server make sure that the name of the repositories match in case you want to mirror multiple repos without specifing a destination address for each repo. We also needed to add credentials to the gerrit config. 
 
 ##Permissions:
 ####Projects -> Access
@@ -131,23 +155,6 @@ Permissions include: Who is allowed to Read, Push, Submit changes.
 In addition it can be defined, how much influence certain groups should have over the reviewing process.
 Permitted users can create Projects.
 
-
-####Creating a Project:
-Projects -> Create Project
-
-Enter a project name
-Choose the Rights to inherit from
-<&lt;create project&gt;>
-
-In the Project options page you can see the URL to use for cloning the git repository.
-
-
-Deleting Projects:
-Not possible over web interface.
-Requires external plugin 
-
-Git:
-Each project has a unique git url to clone/push to
 
 ### Access
 Pushing is prohibited<br>
