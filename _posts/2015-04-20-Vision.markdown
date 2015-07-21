@@ -8,9 +8,7 @@ header-img: "img/post-bg-04.jpg"
 tags: [vision]
 ---
 
-This website might be particularly interesting for you if you're either trying to get your own continuous integration project started from scratch or if you are already involved with continuous integration - but not in context of iOS development. Either way - this website should provide you with all the necessary information you'll need to get your project up and running.
-
->This website might be particularly interesting for you if you're already involved with continuous integration or if you're trying to get your own project started from scratch. Also, if you just need to get to know the things that affect continuous integration in the iOS context, this website should provide you with all the necessary tools you'll need to get your project up and running.
+This website might be particularly interesting for you if you're already involved with continuous integration or if you're trying to get your own project started from scratch. Also, if you just need to get to know the things that affect continuous integration in the iOS context, this website should provide you with all the necessary tools you'll need to get your project up and running.
 
 The inital idea to create this website was to give fellow developers some information and knowledge about the experiences we made while building our own development pipeline. At the most basic level, we wanted to develop an iOS-Application including an Apple Watch integration in a team of 6 people. This time, however, we didn't want to just start writing heaps of code for ourselves, merge everything together in a Git-Repo and then in the end figure out how to get this whole thing running. This time, we wanted to make this right - using sophisticated tools and professional mechanisms. The basic components we wanted to have in our ecosystem were:
 
@@ -23,4 +21,6 @@ The inital idea to create this website was to give fellow developers some inform
 This was our guideline before we had any clue whatsoever, about how any of these systems worked (both separately and in conjunction as a whole). Our concept was to do things in a way, we thought was supposed to be the "right" way when developing a fairly big-sized software project. Reading this documentation of our progress should hopefully prevent you from running into some of the bigger problems you might encounter trying to set up a similiar pipeline for yourself.
 
 #How to use our website
-We'll give you a step by step tutorial for setting up your **development IDE**, integrating an **automated build server** including **automated testing**, adding **code review** to your project as well as **deploying your beta software** via testflight. But you are also good to go if you don't need a complete tutorial. Feel free if you want to have a look into each step seperately.
+//TO DO: Check the links
+
+We'll give you a step by step tutorial for setting up your [**development IDE**] (http://ciforios.github.io/ios/), integrating an [**automated build server**] (http://ciforios.github.io/jenkins/) including [**automated testing**] (http://ciforios.github.io/jenkins/), adding [**code review**] (http://ciforios.github.io/gerrit/) to your project as well as [**deploying your beta software**](http://ciforios.github.io/workflow/) via testflight. But you are also good to go if you don't need a complete tutorial. Feel free if you want to have a look into each step seperately.
