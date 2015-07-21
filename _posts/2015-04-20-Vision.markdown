@@ -18,6 +18,9 @@ The inital idea to create this website was to give fellow developers some inform
 - Automated Building
 - Automated distribution of Beta-Software
 
+This is what the workflow should look like in the end:
+![Workflow image](img/workflow-master.jpg)
+
 This was our guideline before we had any clue whatsoever, about how any of these systems worked (both separately and in conjunction as a whole). Our concept was to do things in a way, we thought was supposed to be the "right" way when developing a fairly big-sized software project. Reading this documentation of our progress should hopefully prevent you from running into some of the bigger problems you might encounter trying to set up a similiar pipeline for yourself.
 
 #How to use our website
