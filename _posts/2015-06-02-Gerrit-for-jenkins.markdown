@@ -9,12 +9,16 @@ tags: [gerrit]
 ---
 
 ## Setting up Gerrit for Jenkins (Gerrit Trigger)
-The Jenkins Plugin "Gerrit Trigger" expects Gerrit to have the label "Verified" set, which is not by default included in the gerrit config.
+The Jenkins Plugin "Gerrit Trigger" expects Gerrit to have the label "Verified" set, which is not by default included in the gerrit config.<br>
 The gerrit label can be added in:<br>
 Projects -> List -> All Projects -> General -> Edit Config<br>
+>NOTE: Alternatively to adding the verified label, you can also change the ssh command of gerrit trigger and remove the "-v" part.
+
 After adding the Verified Label, it is also necessary to add the permissions for groups to change the verified status of a review.
 Projects -> List -> All Projects -> Access -> Edit<br>
 Under the point "Reference: refs/heads/*" hit "Add Permission" and choose "Label Verified". Then add the groups that should be allowed to change the verified state. E.g. Admins and Non-Interactive Users (the group containing Jenkins).
+
+>This error is not easily visible since no error is thrown in the jenkins log. In our case the symptoms were, that jenkins did set the "jenkins started building" message, but did not set a review after the build was done. You can identify this problem by taking a look at the ssh log files of gerrit/jenkins.
 
 Further info on Gerrit labels see: <br>
 [https://gerrit-review.googlesource.com/Documentation/config-labels.html](https://gerrit-review.googlesource.com/Documentation/config-labels.html)<br>
