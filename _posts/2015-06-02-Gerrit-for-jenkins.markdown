@@ -1,11 +1,11 @@
 ---
 layout:     post
-title:      "Jenkins integration"
-subtitle:   "Preparing Gerrit for Jenkins"
+title:      "Talking to Jenkins"
+subtitle:   "Preparing Gerrit for Jenkins integration"
 date:       2015-06-02 09:12:13
 author:     "The crew"
 header-img: "img/post-bg-03.jpg"
-tags: [gerrit]
+tags: [gerrit, jenkins]
 ---
 
 ## Setting up Gerrit for Jenkins (Gerrit Trigger)
