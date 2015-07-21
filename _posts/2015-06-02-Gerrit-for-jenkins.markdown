@@ -1,14 +1,25 @@
 ---
 layout:     post
-title:      "Jenkins integration"
-subtitle:   "Preparing Gerrit for Jenkins"
+title:      "Talking to Jenkins"
+subtitle:   "Preparing Gerrit for Jenkins integration"
 date:       2015-06-02 09:12:13
 author:     "The crew"
 header-img: "img/post-bg-03.jpg"
-tags: [gerrit]
+tags: [gerrit, jenkins]
 ---
 
 ## Setting up Gerrit for Jenkins (Gerrit Trigger)
+####Adding Jenkins user
+In order to allow jenkins to make changes to projects (review code based on whether int builds or not) jenkins needs its own user account in gerrit.
+>As discussein in the previous post, our accounts had to be OpenID accounts, so we had to create another Launchpad account for jenkins using a new email address
+
+After the user is created, you have to add it to a special group, in our case called "externalReviewers".
+
+You also have to change the project settings accordingly, so that the "externalReviewers" are allowed to set the label (in our case "verified" +1 or -1) accordingly.
+
+
+####The verified label bug
+
 The Jenkins Plugin "Gerrit Trigger" expects Gerrit to have the label "Verified" set, which is not by default included in the gerrit config.<br>
 The gerrit label can be added in:<br>
 Projects -> List -> All Projects -> General -> Edit Config<br>
