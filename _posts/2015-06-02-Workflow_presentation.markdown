@@ -4,7 +4,6 @@ title:      "Workflow Presentation"
 subtitle:   "Presentation of the workflow in our development and delivery stages & more"
 date:       2015-06-02 09:12:13
 author:     "The crew"
-header-img: "img/workflow-master.jpg"
 tags: [workflow]
 ---
 
