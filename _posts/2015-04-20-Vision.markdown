@@ -1,24 +1,13 @@
 ---
 layout:     post
-title:      "Where the journey began"
-subtitle:   "Our Vision"
+title:      "What is this all about?"
+subtitle:   "Setting up a continuous integration pipeline for iOS Development"
 date:       2015-04-24 11:20:00
 author:     "The crew"
 header-img: "img/post-bg-04.jpg"
 tags: [vision]
 ---
 
-Context Idee & Ziele, geplante Pipeline aufführen, top-level Konzept - hier noch weniger technisch) + Environment
+Hi there and welcome to our website. Our content might be of interest to you if you are generally interested in setting up a continous pipeline from scratch. Also if you are familiar with continuous integration in general but not in combination with iOS development, then you are at the right place!
 
-#THE CHALLENGE
-Once upon a time students are faced with lectures
-
-
-#Our aim
-
-#Our plan
-
-#Environment
-
-#Test 
-testing...
+We'll give you a step by step tutorial for setting up your **development IDE**, integrating an **automated build server**, adding **code review** to your project as well as **deploying your beta software** via testflight. But you are also good to go if you don't need a complete tutorial. Feel free if you want to have a look into each step seperately.
