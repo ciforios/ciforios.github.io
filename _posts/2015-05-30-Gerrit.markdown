@@ -14,11 +14,11 @@ Setup:
 download gerrit.war from [Official Gerrit page](code.google.com/p/gerrit)
 
 execute 
-```shell
+{% highlight bash %}
 java -jar gerrit.war init -d path/to/site/folder
-```
+{% endhighlight %}
 
-```shell
+{% highlight bash %}
 bash-3.2$ java -jar /Applications/Gerrit/gerrit-2.11.war init -d badgeme
 Using secure store: com.google.gerrit.server.securestore.DefaultSecureStore
 
@@ -106,7 +106,7 @@ Executing /Users/gerrit/Documents/gerrit/badgeme/bin/gerrit.sh start
 Starting Gerrit Code Review: OK
 Waiting for server on mrs.mmlab.mintern.mi.hdm-stuttgart.de:8081 ... OK
 Opening http://mrs.mmlab.mintern.mi.hdm-stuttgart.de:8081/#/admin/projects/ ...OK
-```
+{% endhighlight %}
 
 Open the URL in your browser and log in.
 
