@@ -9,10 +9,10 @@ tags: [introduction]
 
 > Note: Throughout this tutorial we'll frequently be using the command line. Basic knowledge about using a command line interface is assumed.
 
-As of now you need a Macintosh in order to compile your source code. This could for example be a Macbook or what we used a Mac mini. Compiling source code is essential for automated building (surprise) and testing, as well as  for deploying your beta software via testflight. If you are only interested in implementing a code-review process into your development workflow a Macintosh is not essential.
+	To Do: Check the links
+	
+As of now you need a Macintosh in order to compile your source code. This could for example be a Macbook or what we used a Mac mini. Compiling source code is essential for [**automated building**](http://ciforios.github.io/jenkins/) including [**automated testing**](http://ciforios.github.io/jenkins/), as well as  for [**deploying your beta software**](http://ciforios.github.io/workflow/) via testflight. If you are only interested in implementing a [**code-review**](http://ciforios.github.io/gerrit/) process into your development workflow a Macintosh is not essential.
 
-#Server (Mac)
-
-#Apple Developer Program Membership
-
-#Recommended: iOS Device
+Server (Mac)
+Apple Developer Program Membership
+Recommended: iOS Device
