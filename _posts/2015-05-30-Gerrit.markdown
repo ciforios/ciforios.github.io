@@ -162,16 +162,16 @@ Patch Sets need +2 "Code-Review" and +1 "Verified"
 
 ### Pushing commits to gerrit for reviewing
 ####Initially
-	Install git-review on your mac 
-	{% highlight bash %}
-	brew install git-review
-	{% endhighlight %}
-	(for installation on other operating systems see: http://www.mediawiki.org/wiki/Gerrit/git-review)
-	
-	Rename the remote path of your gerrit folder to gerrit:
-	{% highlight bash %}
-	git remote rename origin gerrit
-	{% endhighlight %}
+Install git-review on your mac 
+{% highlight bash %}
+brew install git-review
+{% endhighlight %}
+(for installation on other operating systems see: http://www.mediawiki.org/wiki/Gerrit/git-review)
+
+Rename the remote path of your gerrit folder to gerrit:
+{% highlight bash %}
+git remote rename origin gerrit
+{% endhighlight %}
 #####Creating "PatchSets" (commits that others should review):
 //Do your changes<br/>
 //commit your changes<br/>
