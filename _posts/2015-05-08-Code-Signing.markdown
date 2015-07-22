@@ -35,6 +35,10 @@ Distribution Certificate:
 
 3) Create App IDs
 
+An App ID is a unique identifier whose primary use is to specify which apps are authorized to be signed and launched. App IDs are usually created in reverse-domain-name notation. Enter something like this when creating an App ID:
+
+com.*domainname*.*applicationname*
+
 > Note: Developing for the Apple Watch forces you to create 2 supplementary App IDs for the WatchKit App and the WatchKit Extension in addition to your "normal" iOS App ID
 
 ![image](/img/app-ids.png)
