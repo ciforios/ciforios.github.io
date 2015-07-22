@@ -10,7 +10,7 @@ tags: [code-review]
 
 ##Setting up Gerrit
 
-The first thin you will have to do is download the official java package<br>
+The first thing you will have to do is download the official java package<br>
 download gerrit.war from [Official Gerrit page](code.google.com/p/gerrit)
 
 execute 
