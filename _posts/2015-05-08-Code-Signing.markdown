@@ -33,6 +33,8 @@ Distribution Certificate:
 
 ![image](/img/distribution-certificate.png)
 
+Once you have created your certificates you have to download these and import them into your keychain by double-clicking on the downloaded *.cert files.
+
 3) Create App IDs
 
 An App ID is a unique identifier whose primary use is to specify which apps are authorized to be signed and launched. App IDs are usually created in reverse-domain-name notation. Enter something like this when creating your App ID:
@@ -56,3 +58,5 @@ A Development Provisioning Profile contains a set of Development Certificates, D
 Once you are done it should look something like the screenshot below:
 
 ![image](/img/provisioning-profiles.png)
+
+Congratulations - now you've created everything you need and you are now able to proceed setting up your Xcode project. This will be covered in the [next post]() of this section
