@@ -13,10 +13,10 @@ Within this page we will describe how we set up Jenkins on our Mac to meet our r
 
 
 ###Setup
-Download the latest Jenkins war file from the offical [Jenkins homepage](http://jenkins-ci.org/) 
-
+Download the latest Jenkins war file from the offical [Jenkins homepage](http://jenkins-ci.org/). 
+On our server machine we moved the war file into the applications folder and created there a separted Jenkins folder.
 Create Jenkins folder in Application und move war file there
->Hint: *Jenkins requires Java7 or later*.<br>
+> Note: *Jenkins requires Java7 or later*.<br>
 Download from https://www.java.com/de/download/mac_download.jsp
 	
 	1. Install Java from pkg. Oracle's installer puts java inside the /Library/Internet Plug-Ins/JavaAppletPlugin.plugin. And it doesn't overwrite /usr/bin/java

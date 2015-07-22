@@ -13,7 +13,7 @@ Unlike Android's plug-and-play mechanisms for deploying software onto your devel
 
 > Note: Apple stated that starting from Xcode version 7, developers will no longer have to be part of the Apple Developer Program in order to run apps on real devices which are attached via USB. This does not include distribution.
 
-This post will give you all the information about getting your code-signing up and running.
+This post will give you all the information about getting your code signing up and running.
 
 1) Head over to the [Apple Developer Center](https://developer.apple.com/membercenter) and log into your account
 
@@ -24,6 +24,9 @@ The next thing we're going to do is to create certificates for Development and D
 Therefore, add new entries in the respective sections within the "Certificates, Identifiers and Profiles" > "Certificates".
 
 2) Create a new Development and/or Distribution Certificate
+
+The certificate is used to authenticate the developer as the rightful owner.
+
 
 Development Certificate:
 
