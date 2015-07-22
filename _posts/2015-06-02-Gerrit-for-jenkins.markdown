@@ -3,9 +3,9 @@ layout:     post
 title:      "Talking to Jenkins"
 subtitle:   "Preparing Gerrit for Jenkins integration"
 date:       2015-06-02 09:12:13
-author:     "The crew"
+author:     "The Crew"
 header-img: "img/post-bg-03.jpg"
-tags: [gerrit, continuous-integration]
+tags: [code-review, continuous-integration]
 ---
 
 ## Setting up Gerrit for Jenkins (Gerrit Trigger)

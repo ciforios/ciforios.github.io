@@ -3,7 +3,7 @@ layout:     post
 title:      "Continuous Integration with Jenkins"
 subtitle:   "How to how to"
 date:       2015-05-25 12:00:00
-author:     "The crew"
+author:     "The Crew"
 header-img: "img/post-bg-06.jpg"
 tags: [continuous-integration]
 ---

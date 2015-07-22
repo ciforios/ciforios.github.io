@@ -3,9 +3,9 @@ layout:     post
 title:      "Setting up Gerrit"
 subtitle:   "Initial setup"
 date:       2015-05-30 12:35:33
-author:     "The crew"
+author:     "The Crew"
 header-img: "img/post-bg-03.jpg"
-tags: [gerrit]
+tags: [code-review]
 ---
 
 ##Setting up Gerrit
