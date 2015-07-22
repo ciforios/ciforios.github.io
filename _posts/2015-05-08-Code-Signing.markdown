@@ -17,9 +17,9 @@ This post will give you all the information about getting your code-signing up a
 
 1) Head over to the [Apple Developer Center](https://developer.apple.com/membercenter) and log into your account
 
-The next thing we're going to do is to create certificates for development and distribution purposes.
+The next thing we're going to do is to create certificates for Development and Distribution purposes.
 
-> Note: If you don't intend to distribute your apps via TestFlight, you won't need a distribution certificate
+> Note: If you don't intend to distribute your apps via TestFlight, you won't need a Distribution Certificate
 
 Therefore, add new entries in the respective sections within the "Certificates, Identifiers and Profiles" > "Certificates".
 

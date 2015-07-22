@@ -1,8 +1,8 @@
 ---
 layout:     post
 title:      "Continuous Integration with Jenkins"
-subtitle:   "How to how to"
-date:       2015-05-25 12:00:00
+subtitle:   "Setting things up and running"
+date:       2015-04-21 12:00:00
 author:     "The Crew"
 header-img: "img/post-bg-06.jpg"
 tags: [continuous-integration]
@@ -13,7 +13,7 @@ Within this page we will describe how we set up Jenkins on our Mac to meet our r
 
 
 ###Setup
-Download .war file from http://jenkins-ci.org/ -> version 1.620
+Download the latest Jenkins war file from the offical [Jenkins homepage](http://jenkins-ci.org/) 
 
 Create Jenkins folder in Application und move war file there
 >Hint: *Jenkins requires Java7 or later*.<br>
