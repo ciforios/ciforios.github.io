@@ -8,60 +8,60 @@ header-img: "img/post-bg-06.jpg"
 tags: [continuous-integration]
 ---
 
-Within this page we will describe how we set up Jenkins on our Mac to meet our requirements. 
-![alt text]({{ site.url }}/img/jenkins/jenkinsLogo.png)
+<img style="float:left" src="{{ site.url }}/img/jenkins/jenkinsLogo.png" />
+Within this page we will describe how we set up Jenkins on our server to meet our requirements. 
 
 
 ###Setup
 Download the latest Jenkins war file from the offical [Jenkins homepage](http://jenkins-ci.org/). 
-On our server machine we moved the war file into the applications folder and created there a separted Jenkins folder.
-Create Jenkins folder in Application und move war file there
-> Note: *Jenkins requires Java7 or later*.<br>
-Download from https://www.java.com/de/download/mac_download.jsp
-	
-	1. Install Java from pkg. Oracle's installer puts java inside the /Library/Internet Plug-Ins/JavaAppletPlugin.plugin. And it doesn't overwrite /usr/bin/java
-	2. Check java version in terminal -> java -version 
-	3. It won't be set to latest java version. Do following:
-	  * ```sudo rm /usr/bin/java``` -> Remove old symbol link (points to /System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java, which is Apple's 1.6 version)
-	  * ```sudo ln -s /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java /usr/bin``` -> Replace /usr/bin/java symlink
+On our server machine we moved the war file into the applications folder and created there a separated Jenkins folder but this can be handled by everyone individually.<br>
+Open the terminal and start Jenkins with  
+{% highlight bash %}
+	java -jar /Applications/Jenkins/jenkins.war &
+{% endhighlight %}
+The link to the war files depends where you saved it locally. After firing up the command you might face some error if you don't have at least Java Version 7 installed.
+To upgrade to the latest Java Version you need to do following steps:<br>
+1. Get the latest Java Version from [Oracle](https://www.java.com/de/download/mac_download.jsp). Once you run the installer it will install Java inside the ```/Library/Internet Plug-Ins/JavaAppletPlugin.plugin``` directory. But it doesn't overwrite ```/usr/bin/java``` which is the default directory used by Apple. You can check your version by typing in ```java -version ```<br>
+2. In order to change the version to the just installed one run following commands:
+{% highlight bash %}
+	sudo rm /usr/bin/java
+{% endhighlight %}
+This command will remove the old symbol link which points to ```/System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java``` (That's Apple's 1.6 Java Version). Now you need to set a new symbolic link to the new Java version. 
+{% highlight bash %}
+	sudo ln -s /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java /usr/bin
+{% endhighlight %}
 
-Start Jenkins via: ```java -jar /Applications/Jenkins/jenkins.war &```
-  * Open Jenkins via Webfrontend: [http://localhost:8080/](http://localhost:8080/)
+After that you should be able to successfully start Jenkins via the command
+{% highlight bash %}
+	java -jar /Applications/Jenkins/jenkins.war &
+{% endhighlight %}
+Once done and you don't see any further error messages in the terminal you can reach Jenkins via the Webfrontend [http://localhost:8080/](http://localhost:8080/) and it should look like below.
 
-#### Creating Users
+![image](/img/jenkins/jenkins_overview.png)
+<br>
 
-
-
-###Security settings
-
-By default no authentication is required<br>
-You should activate the security settings though, because Jenkins is usually reachable over the network and without this security feature it is easily accessable.<br>
-
-In our case the following changes have been made:<br>
-Manage Jenkins->Global Security->Enable Security: <br>
-Security Realm has been activated. Jenkins own user database (with allow users to signup)<br>
-Authorization: Logged-in users can do anything<br>
->Remark: If you don't add security realm it will cause an error "/j_acegi_security_check"
-
-Save changes
-
+### Make everything a little secure
+By default no authentication is required at all. You should activate the security settings though, because Jenkins is usually reachable over the network and without this security feature it is easily accessable.<br>
+In our case the following changes have been made under ```Manage Jenkins->Configure Global Security->Enable Security:```<br>
+Here we activated ```Jenkins own user database``` under the section```Security Realm```, which allow users to signup. We left the Authorization field as it is on ```Logged-in users can do anything```.<br>
+>Note: If you don't add security realm it will cause an error "/j_acegi_security_check". <br />  
+Once you finished everything you shouldn't forget to save all your changes.
 
 
 ###Plugins
-There is a multitude of plugins for Jenkins. For our CI approach we mainly used the folloing 4 plugins.
+There is a multitude of Plugins for Jenkins. For our puroposes we came to the conclusion to use following Plugins:
 
-Slack plugin: [https://wiki.jenkins-ci.org/display/JENKINS/Slack+Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Slack+Plugin)
 
-***
-
-GIT Plugin: [https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin)
+* [Slack Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Slack+Plugin)
 
 ***
-Gerrit Trigger: [https://wiki.jenkins-ci.org/display/JENKINS/Gerrit+Trigger](https://wiki.jenkins-ci.org/display/JENKINS/Gerrit+Trigger)
-
+* [GIT Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin)
 
 ***
-XCode Integration: [https://wiki.jenkins-ci.org/display/JENKINS/Xcode+Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Xcode+Plugin)
+* [Gerrit Trigger](https://wiki.jenkins-ci.org/display/JENKINS/Gerrit+Trigger)
+
+***
+* [XCode Integration](https://wiki.jenkins-ci.org/display/JENKINS/Xcode+Plugin)
 
 
 You can install plugins under "Manage Jenkins" -> Manage Plugins. <br>
