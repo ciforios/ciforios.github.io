@@ -9,7 +9,7 @@ tags: [continuous-integration]
 ---
 
 <img style="float:left" src="{{ site.url }}/img/jenkins/jenkinsLogo.png" />
-Within this page we will describe how we set up Jenkins on our server to meet our requirements. 
+Within this page we will describe how we set up Jenkins on our server to meet our requirements. We choose Jenkins because it's the common used CI software. We were considering to use XCode Server from Apple as a CI but due to the restrictions to Apple we were rejecting this idea. 
 
 
 ###Setup
@@ -19,7 +19,7 @@ Open the terminal and start Jenkins with
 {% highlight bash %}
 	java -jar /Applications/Jenkins/jenkins.war &
 {% endhighlight %}
-The link to the war files depends where you saved it locally. After firing up the command you might face some error if you don't have at least Java Version 7 installed.
+The link to the war files depends where you saved it locally. After firing up the command you might face some error if you don't have at least Java Version 7 installed.<br>
 To upgrade to the latest Java Version you need to do following steps:<br>
 1. Get the latest Java Version from [Oracle](https://www.java.com/de/download/mac_download.jsp). Once you run the installer it will install Java inside the ```/Library/Internet Plug-Ins/JavaAppletPlugin.plugin``` directory. But it doesn't overwrite ```/usr/bin/java``` which is the default directory used by Apple. You can check your version by typing in ```java -version ```<br>
 2. In order to change the version to the just installed one run following commands:
@@ -49,8 +49,8 @@ Here we activated ```Jenkins own user database``` under the section```Security R
 Once you finished everything you shouldn't forget to save all your changes.
 
 <br>
-###Plugins
-There is a multitude of Plugins for Jenkins. For our puroposes we came to the conclusion to use following Plugins:
+###Install Plugins to make your life easier
+There is a multitude of Plugins for Jenkins. For our purposes we came to the conclusion that we need following Plugins:
 
 
 * [Slack Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Slack+Plugin)
@@ -65,9 +65,7 @@ There is a multitude of Plugins for Jenkins. For our puroposes we came to the co
 * [XCode Integration](https://wiki.jenkins-ci.org/display/JENKINS/Xcode+Plugin)
 
 
-You can install plugins under "Manage Jenkins" -> Manage Plugins. <br>
-In this overview table select the tab "Available". <br>
-Select the plugins you want to install and click on the button "Download now and install after restart"
+You can install those Plugins under "Manage Jenkins" -> "Manage Plugins". In this overview table select the tab "Available". Then you can choose the Plugin which you want to install and click on the button "Download now and install after restart".
 
 ####Configuring Gerrit Trigger
 Configure Plugin in Manage Jenkins->Gerrit Trigger<br>

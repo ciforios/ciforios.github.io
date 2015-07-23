@@ -9,7 +9,7 @@ tags: [ios]
 
 >Note: Like mentioned in [requirements](http://ciforios.github.io/2015/04/24/Requirements/), an Apple Developer Program is required if you intend to distribute your apps via TestFlight or get them into the App Store.
 
-Unlike Android's plug-and-play mechanisms for deploying software onto your development devices, Apple requires you to code-sign your application before you can actually use it on a real device.
+Unlike Android's plug-and-play mechanisms for deploying software onto your development devices, Apple requires you to code sign your application before you can actually use it on a real device.
 
 > Note: Apple stated that starting from Xcode version 7, developers will no longer have to be part of the Apple Developer Program in order to run apps on real devices which are attached via USB. This does not include distribution.
 
