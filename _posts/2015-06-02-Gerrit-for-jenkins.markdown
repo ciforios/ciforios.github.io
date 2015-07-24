@@ -54,7 +54,7 @@ In our case we wanted to be able to override the jenkins opinion if necessary (p
 
 >NOTE: Alternatively to adding the verified label, you can also change the ssh command of gerrit trigger and remove the "-v" part.
 
-After adding the Verified Label, it is also necessary to add the permissions for groups to change the verified status of a review.
+After adding the Verified Label, it is also necessary to add the permissions for groups to change the verified status of a review.<br>
 Projects -> List -> All Projects -> Access -> Edit<br>
 Under the point "Reference: refs/heads/*" hit "Add Permission" and choose "Label Verified". Then add the groups that should be allowed to change the verified state. E.g. Admins and Non-Interactive Users (the group containing Jenkins).
 
