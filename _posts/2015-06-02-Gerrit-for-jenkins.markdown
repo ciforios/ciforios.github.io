@@ -38,13 +38,15 @@ The Jenkins Plugin "Gerrit Trigger" expects Gerrit to have the label "Verified" 
 The gerrit label can be added in:<br>
 Projects -> List -> All Projects -> General -> Edit Config<br>
 by adding the following in the bottom of the document:
-	[label "Verified"]
-		function = MaxWithBlock
-		value = -2 This shall not be merged
-		value = -1 fail
-		value =  0 No score
-		value = +1 Verified
-		defaultValue = 0
+{% highlight bash %}
+[label "Verified"]
+	function = MaxWithBlock
+	value = -2 This shall not be merged
+	value = -1 fail
+	value =  0 No score
+	value = +1 Verified
+	defaultValue = 0
+{% endhighlight %}
 Depending on your project settings you might not want the verified label to have the -2 value. In our case we wanted to be able to override the jenkins opinion if necessary (partly because in the beginning Jenkins was not 100% reliable). Merging a PatchSet in Gerrit is not possible, when the lowest value of a label is set(once a user reviews a PatchSet with the lowest value, the PatchSet is blocked).
 		
 
