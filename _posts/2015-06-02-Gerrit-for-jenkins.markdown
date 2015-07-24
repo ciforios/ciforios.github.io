@@ -19,7 +19,7 @@ After the user is created, you have to add it to a special group, in our case ca
 You can achieve this by clicking People -> List Groups (in case the group already exists) or People -> Create New Group (in case you dont't have a group for external tools).<br>
 
 You also have to change the project settings accordingly, so that the "Non-Interactive Users" are allowed to set the label (in our case "verified" +1 or -1 and "Code-Review" +1 or -1).<br>
-![Access Settings in Gerrit](/img/gerrit/project_access_settings_gerrit.png)<br>
+![Access Settings in Gerrit](/img/gerrit/project_access_settings_gerrit.PNG)<br>
 This can be achived by selecting the project (Projects -> List -> &lt;Project Name&gt;). This should redirect you to the Access tab of this project. Then select "Edit" to edit the Access Settings.
 >NOTE: In case you are not allowed to edit the settings, you might not be logged in, or you don't have admin rights.
 NOTE: In case the verified label doesn't exist, follow the steps below.
