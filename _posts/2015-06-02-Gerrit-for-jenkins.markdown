@@ -17,7 +17,6 @@ After the user is created, you have to add it to a special group, in our case ca
 >NOTE: Log in with your Admin account.
 
 You can achieve this by clicking People -> List Groups (in case the group already exists) or People -> Create New Group (in case you dont't have a group for external tools).<br>
-You will also have to add a SSH Public Key to the jenkins user.
 
 You also have to change the project settings accordingly, so that the "Non-Interactive Users" are allowed to set the label (in our case "verified" +1 or -1 and "Code-Review" +1 or -1).<br>
 This can be achived by selecting the project (Projects -> List -> &lt;Project Name&gt;). This should redirect you to the Access tab of this project. Then select "Edit" to edit the Access Settings.
