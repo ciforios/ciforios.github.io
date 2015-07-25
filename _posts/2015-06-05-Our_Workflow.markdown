@@ -9,6 +9,7 @@ tags: [workflow]
 ---
 
 ## Branching
+![Branching](/img/branching.PNG)
 We decided to go with a simple dev and master branching scheme. The dev branch contains the most current work, but should still only contain code that allows the App to be built.<br>
 The master contains the newest stable code which can be rolled out and tested on real devices. 
 
