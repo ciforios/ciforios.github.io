@@ -27,4 +27,4 @@ The master contains the newest, stable code which can be rolled out and tested o
 
 
 ## Releases
-Alpha releases are automatically created by merging the dev into the master branch. This increments the version number and puthe new version to the shes tester devices.
+Beta releases are automatically created by merging the dev into the master branch. This increments the version number and puthe new version to the shes tester devices.
