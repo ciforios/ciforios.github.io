@@ -11,21 +11,21 @@ tags: [ios]
 
 Unlike Android's plug-and-play mechanisms for deploying software onto your development devices, Apple requires you to code sign your application before you can actually use it on a real device.
 
-> Note: Apple stated that starting from Xcode version 7, developers will no longer have to be part of the Apple Developer Program in order to run apps on real devices which are attached via USB. This does not include distribution.
+> Note: Apple stated that starting from Xcode version 7, developers will no longer have to be part of the Apple Developer Program in order to run apps on real devices which are attached via USB. This does **not** include distribution.
 
 This post will give you all the information about getting your code signing up and running.
 
 ####1. Head over to the [Apple Developer Center](https://developer.apple.com/membercenter) and log into your account
 
-The next thing we're going to do is to create certificates for Development and Distribution purposes.
+The next thing we're going to do is creating certificates for Development and Distribution purposes.
 
-> Note: If you don't intend to distribute your apps via TestFlight, you won't need a Distribution Certificate
+> Note: If you don't intend to distribute your apps via TestFlight, you won't need a Distribution Certificate.
 
-Therefore, add new entries in the respective sections within the "Certificates, Identifiers and Profiles" > "Certificates".
+Therefore, add new entries in the respective sections within "Certificates, Identifiers and Profiles" > "Certificates".
 
 ####2. Create a new Development and/or Distribution Certificate
 
-The certificate is used to authenticate the developer as the rightful owner.
+The certificates are used to authenticate the developer as the rightful owner.
 
 
 #####Development Certificate:
@@ -54,7 +54,11 @@ An App ID is a unique identifier whose primary use is to specify which apps are 
 
 ####4. Register your devices you wish to deploy your app onto
 
+Next, we'll add iOS devices within the development center. This will allow you to deploy your app onto all devices you registered here. Thus, select "Devices" > "All" from the side menu and click the "+" icon at the top. Now you can add the device's name and its UDID.
+
 > Note: You can add up to 100 devices per category (e.g. iPhone, iPad, Apple Watch). If you're unable to find your devices' UDID - [follow these steps](http://whatsmyudid.com).
+
+![image](/img/register-device.png)
 
 ####5. Create new Development and/or Distribution Provisioning Profiles
 
