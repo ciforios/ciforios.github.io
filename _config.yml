@@ -2,7 +2,7 @@
 title: Continuous Integration for iOS
 organisation: Ci for iOS
 header-img: img/home-bg.jpg
-email: mkalla@gmx.net
+email: ciforios@gmx.net
 description: "Continuous Integration for iOS - Setting up your system"
 baseurl: ""
 url: "http://ciforios.github.io"
@@ -13,8 +13,8 @@ facebook_username:
 # Build settings
 markdown: redcarpet
 redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
-  highlighter: pygments
+ extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+highlighter: pygments
 permalink: pretty
 paginate: 5
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
