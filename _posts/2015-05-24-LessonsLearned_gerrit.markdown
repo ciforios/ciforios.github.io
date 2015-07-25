@@ -14,3 +14,6 @@ tags: [lessons-learned]
 - Is highly configurable
 - Adds complexity to the pipeline
 - Needs some training time
+- Needs external authentication
+- Deleting projects not possible by design
+- Does add quality assurance layer
