@@ -5,7 +5,7 @@ subtitle:	""
 date:       2015-05-24 15:20:05
 author:     "The Crew"
 header-img: "img/lesson-learned.jpg"
-tags: [lessons-learned, gerrit]
+tags: [lessons-learned, code-review]
 ---
 
 ## A quick summary about what we learned about Gerrit
