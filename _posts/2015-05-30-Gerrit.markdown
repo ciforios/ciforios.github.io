@@ -20,6 +20,8 @@ execute
 java -jar gerrit.war init -d path/to/site/folder
 {% endhighlight %}
 
+>NOTE: the path/to/site/folder should be a folder you don't need admin access to change (e.g. ~/gerritSite)
+
 This will create the folder you provide in the "-d" argument and start the initialisation dialog. You can run this command again on an already existing gerrit folder to change its configuration.
 
 Below you can see the configuration dialog in our case. We went with the default options in most cases (except the http port to listen on, which we set to 8081 because 8080 is already used for jenkins. We also didn't install bouncy castle).
