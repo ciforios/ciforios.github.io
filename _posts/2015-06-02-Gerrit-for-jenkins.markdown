@@ -48,6 +48,7 @@ by adding the following in the bottom of the document:
 	value = +1 Verified
 	defaultValue = 0
 {% endhighlight %}
+After saving, go to All -> Open and you will see a open review "Change Config". Open it, hit "Publish" then "Code-Review +2" and then Submit.<br>
 Depending on your project settings you might not want the verified label to have the -2 value. <br>
 In our case we wanted to be able to override the jenkins opinion if necessary (partly because in the beginning Jenkins was not 100% reliable). Merging a PatchSet in Gerrit is not possible, when the lowest value of a label is set(once a user reviews a PatchSet with the lowest value, the PatchSet is blocked).
 		
