@@ -73,7 +73,7 @@ Additionally you get a detailed test-report within each build.
 ![image](/img/test-result-detail.png)
 
 
-####Further informations
+####Further information
 - [OCUnit2JUnit - Github](https://github.com/ciryon/OCUnit2JUnit)
 - [Command Line Testing - iOS Developer Library](https://developer.apple.com/library/ios/documentation/DeveloperTools/Conceptual/testing_with_xcode/A2-command_line_testing/A2-command_line_testing.html)
 
