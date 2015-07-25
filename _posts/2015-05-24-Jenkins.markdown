@@ -20,8 +20,10 @@ Open the terminal and start Jenkins with
 	java -jar /Applications/Jenkins/jenkins.war &
 {% endhighlight %}
 The link to the war files depends where you saved it locally. After firing up the command you might face some error if you don't have at least Java Version 7 installed.<br>
-To upgrade to the latest Java Version you need to do following steps:<br>
-1. Get the latest Java Version from [Oracle](https://www.java.com/de/download/mac_download.jsp). Once you run the installer it will install Java inside the ```/Library/Internet Plug-Ins/JavaAppletPlugin.plugin``` directory. But it doesn't overwrite ```/usr/bin/java``` which is the default directory used by Apple. You can check your version by typing in ```java -version ```<br>
+***
+If you need to upgrade to the latest Java Version you need to do following steps:<br>
+1. Get the latest Java Version from [Oracle](https://www.java.com/de/download/mac_download.jsp).<br>
+Once you run the installer it will install Java inside the ```/Library/Internet Plug-Ins/JavaAppletPlugin.plugin``` directory. But it doesn't overwrite ```/usr/bin/java``` which is the default directory used by Apple. You can check your version by typing in ```java -version ```<br>
 2. In order to change the version to the just installed one run following commands:
 {% highlight bash %}
 	sudo rm /usr/bin/java
@@ -31,7 +33,7 @@ This command will remove the old symbol link which points to ```/System/Library/
 	sudo ln -s /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java /usr/bin
 {% endhighlight %}
 
-After that you should be able to successfully start Jenkins via the command
+After that try again if you can successfully start Jenkins via the command
 {% highlight bash %}
 	java -jar /Applications/Jenkins/jenkins.war &
 {% endhighlight %}
@@ -44,6 +46,7 @@ Once done and you don't see any further error messages in the terminal you can r
 By default no authentication is required at all. You should activate the security settings though, because Jenkins is usually reachable over the network and without this security feature it is easily accessable.<br>
 In our case the following changes have been made under ```Manage Jenkins->Configure Global Security->Enable Security:```<br>
 Here we activated ```Jenkins own user database``` under the section```Security Realm```, don't forget users to signup. Once everyone is registered you should deactivate this feature again. Otherwise it's still not secure because everyone can register themself and has admin rights. We left the Authorization field as it is on ```Logged-in users can do anything```.<br>
+In case you use Gerrit you should also add a Jenkins user for Gerrit.
 >Note: If you don't add security realm it will cause an error "/j_acegi_security_check".
 
 Once you finished everything you shouldn't forget to save all your changes.
@@ -90,14 +93,32 @@ That the Plugin is able to use the command line tools from Xcode you need to hav
 Configure the Gerrit Plugin in "Manage Jenkins" -> "Gerrit Trigger"<br>
 Select "Add new server" on the left and enter a name for your Gerrit server and choose "Gerrit Server with Default Configurations".<br> 
 Enter in the field for "Frontend URL" the server address of your Gerrit with port, in our case it is: http://192.168.8.10:8081/. To connect via SSH we need port: 29418. You then need to enter the username which you added in
-[**Gerrit for Jenkins**](http://ciforios.github.io/2015/06/02/Gerrit-for-jenkins/). Additionaly add the
-SSH Keyfile and password which you generated also in this section. Further changes can be made regarding the values which will be given from Jenkins to Gerrit once triggered.
+[**Gerrit for Jenkins**](http://ciforios.github.io/2015/06/02/Gerrit-for-jenkins/), in our case Jenkins. Additionaly add the SSH Keyfile (private file) and password which you generated for Jenkins in Gerrit. Further changes can be made regarding the values which will be given from Jenkins to Gerrit once triggered.
+>Note: There seems to be problem when you're using a passphrase for SSH. It will show the error "Bad SSH key or passphrase" when testing the connection, see [https://issues.jenkins-ci.org/browse/JENKINS-20879](https://issues.jenkins-ci.org/browse/JENKINS-20879)
 
 
 ###Jobs
-For creating a new job, select new item on the left side. 
+Now you can start setting up your Jenkins Jobs. A job can have different tasks. Normally a project consists of different jobs which have different purposes like executing unit tests, building artefacts and so on.<br>
+In our case we created two several Jobs which differentiate in a few settings.<br> 
+**1. Build and test PatchSet on dev** - Building the project and run tests<br>
+**2. Build and upload master branch** - Building the project, generating an ipa and push it via iTunes Connect to Testflight.
 
-####Build and test job
+We describe the common settings how we use it in our project before we go into the detail changes for those jobs. For creating a new job, select "New Item" on the left side. Assign a project name, in our case "Build and test PatchSet on dev" as "Freestyle project" and select ok.
+***
+**Slack Notifications**<br>
+In the first section are settings about Slack configured. We set a checkmark for "Notify Failure" and "Notify Success" so that we get notified in those two cases.
+![image](/img/jenkins/jobSettingsSlack.png)
+***
+**Source Code Management**
+
+* In the section "Source Code Management" select Git. For the Repository URL you'll need to enter the URL of your Gerrit added with the project name if you use Gerrit, in our case "http://192.168.8.10:8081/badgeme-app". When not using Gerrit just link to your Git project.
+* Further more for Gerrit you need to set under Advance Refspec to "$GERRIT_REFSPEC". 
+* "Branches to build" needs "$GERRIT_BRANCH" as a parameter. 
+* In "Additional Behaviours" you need to add "Strategy for choosing what to build". There you would select as "choosing strategy" your Gerrit Trigger.
+
+***
+**Build Triggers**
+As build trigger you select "Gerrit event"
 
 
-####Build and upload to master branch job
+####Build and upload master branch
