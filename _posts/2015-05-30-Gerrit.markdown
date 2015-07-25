@@ -10,7 +10,9 @@ tags: [code-review]
 
 ##Setting up Gerrit
 
-The first thing you will have to do is download the official java package<br>
+The very first thing you will want to do is creating a new user for running Gerrit. In our case called "gerrit", and log into that user. 
+
+The next thing you will have to do is download the official java package<br>
 download gerrit.war from [Official Gerrit page](https://code.google.com/p/gerrit)
 
 execute 
@@ -20,7 +22,7 @@ java -jar gerrit.war init -d path/to/site/folder
 
 This will create the folder you provide in the "-d" argument and start the initialisation dialog. You can run this command again on an already existing gerrit folder to change its configuration.
 
-Below you can see the configuration dialog in our case. We went with the default options in most cases (except the http port to listen on).
+Below you can see the configuration dialog in our case. We went with the default options in most cases (except the http port to listen on, which we set to 8081 because 8080 is already used for jenkins).
 {% highlight bash %}
 bash-3.2$ java -jar /Applications/Gerrit/gerrit-2.11.war init -d badgeme
 Using secure store: com.google.gerrit.server.securestore.DefaultSecureStore
