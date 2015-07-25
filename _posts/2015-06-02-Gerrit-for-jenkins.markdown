@@ -32,10 +32,13 @@ In gerrit, you also have to add the public key to the jenkins user.
 
 To add the Public key, hit the username in the top right corner (should be jenkins) and click "Settings". In the settings menu choose "SSH Public Keys" and add the Public Key you created on the jenkins machine.
 
+You also have to set the username of the jenkins user. You can do that in the user Settings under "Settings". This is the username you have to enter in Gerrit Trigger in jenkins.
 
 
-<div id="verifiedLabel"/>
-####The verified label bug
+
+
+
+####<a name="verifiedLabel"/>The verified label bug
 
 The Jenkins Plugin "Gerrit Trigger" expects Gerrit to have the label "Verified" set, which is not by default included in the gerrit config.<br>
 The gerrit label can be added in:<br>
