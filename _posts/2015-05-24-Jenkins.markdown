@@ -78,24 +78,20 @@ In order to use later those freshly installed Plugins we need to configure them.
 ####Slack
 1. First you need to get a Slack account: [https://slack.com/](https://slack.com/).
 2. Then you need to configure the Jenkins integration for Slack: [https://my.slack.com/services/new/jenkins-ci](https://my.slack.com/services/new/jenkins-ci). 
-3. After that configure your Slack Plugin. Go to "Manage Jenkins" -> "Configure System". There you'll find a section about Slack "Global Slack Notifier Settings" where you can insert your settings.<br>
-<img style="float:left" src="{{ site.url }}/img/jenkins/settingsSlack.png" />
-
-
+3. After that configure your Slack Plugin. Go to "Manage Jenkins" -> "Configure System". There you'll find a section about Slack "Global Slack Notifier Settings" where you can insert your settings.
+<img style="float:left" src="{{ site.url }}/img/jenkins/settingsSlack.png" /><br>
 
 ***
 ####XCode Integration
 That the Plugin is able to use the command line tools from Xcode you need to have Xcode installed on the machine. Download it from the AppStore and open it at least once that it can install necessary tools. Later on, if you want to run automated Unit Tests you also need to install some simulators otherwise the jobs won't work. Therefore go to the statusbar in Xcode to "Xcode"->"Preferences". Under the tab "Downloads" it will list you all simulators you can install.
+
 ***
 ####Gerrit Trigger
-Configure Plugin in Manage Jenkins->Gerrit Trigger<br>
-Add new server
-Frontend URL: http://192.168.8.10:8081/
-SSH Port: 29418
-Username: jenkins (Need to be added to Gerrit as a new user with admin rights)
-       Using old hdm account from yannik with badgme1
-SSH Keyfile and password. Generated ssh file for Jenkins
-
+Configure the Gerrit Plugin in "Manage Jenkins" -> "Gerrit Trigger"<br>
+Select "Add new server" on the left and enter a name for your Gerrit server and choose "Gerrit Server with Default Configurations".<br> 
+Enter in the field for "Frontend URL" the server address of your Gerrit with port, in our case it is: http://192.168.8.10:8081/. To connect via SSH we need port: 29418. You then need to enter the username which you added in
+[**Gerrit for Jenkins**](http://ciforios.github.io/2015/06/02/Gerrit-for-jenkins/). Additionaly add the
+SSH Keyfile and password which you generated also in this section.
 
 
 ###Jobs
