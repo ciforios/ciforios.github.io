@@ -1,0 +1,16 @@
+---
+layout:     post
+title:      "Our Workflow"
+subtitle:   "This is how we flow"
+date:       2015-06-05 11:31:11
+author:     "The Crew"
+header-img: "img/post-bg-03.jpg"
+tags: [workflow]
+---
+
+## Branching
+We decided to go with a simple dev and master branching scheme. The dev branch contains the most current work, but should still only contain code that allows the App to be built.<br>
+The master contains the newest stable code which can be rolled out and tested on real devices. 
+
+## Releases
+Alpha releases are automatically created by merging the dev into the master branch. This increments the version number and pushes the new version to the tester devices.

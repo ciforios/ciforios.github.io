@@ -18,7 +18,9 @@ After the user is created, you have to add it to a special group, in our case ca
 
 You can achieve this by clicking People -> List Groups (in case the group already exists) or People -> Create New Group (in case you dont't have a group for external tools).<br>
 
-You also have to change the project settings accordingly, so that the "Non-Interactive Users" are allowed to set the label (in our case "verified" +1 or -1 and "Code-Review" +1 or -1).<br>
+You also have to change the project settings accordingly, so that the "Non-Interactive Users" are allowed to set the label (in our case "verified" +1 or -1 and "Code-Review" +1 or -1).<br>le
+>NOTE: If you don't have the verified label, but would like to add it, please follow the instructions [below](#verifiedLabel)
+
 ![Access Settings in Gerrit](/img/gerrit/project_access_settings_gerrit.PNG)<br>
 This can be achived by selecting the project (Projects -> List -> &lt;Project Name&gt;). This should redirect you to the Access tab of this project. Then select "Edit" to edit the Access Settings.
 >NOTE: In case you are not allowed to edit the settings, you might not be logged in, or you don't have admin rights.
@@ -30,10 +32,13 @@ In gerrit, you also have to add the public key to the jenkins user.
 
 To add the Public key, hit the username in the top right corner (should be jenkins) and click "Settings". In the settings menu choose "SSH Public Keys" and add the Public Key you created on the jenkins machine.
 
+You also have to set the username of the jenkins user. You can do that in the user Settings under "Settings". This is the username you have to enter in Gerrit Trigger in jenkins.
 
 
 
-####The verified label bug
+
+
+####<div id="verifiedLabel"/>The verified label bug
 
 The Jenkins Plugin "Gerrit Trigger" expects Gerrit to have the label "Verified" set, which is not by default included in the gerrit config.<br>
 The gerrit label can be added in:<br>
