@@ -41,9 +41,9 @@ To trigger automated tests after a successful build, you need to add another bui
 2. select *Execute shell*
 3. paste the following shell command in the *Command field* (don't forget to edit the project and scheme name)
 
-{% highlight bash %}	
+```bash	
 xcodebuild -project YourPorjectName.xcodeproj -sdk iphonesimulator -scheme YourSchemeName clean test 2>&1 | ocunit2junit
-{% endhighlight %}
+```
 
 ###Post build action - Publish JUnit test report result
 Finally you need to setup a post build action to make the test-report results visible.
