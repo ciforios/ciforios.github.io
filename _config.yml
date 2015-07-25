@@ -6,9 +6,9 @@ email: mkalla@gmx.net
 description: "Continuous Integration for iOS - Setting up your system"
 baseurl: ""
 url: "http://ciforios.github.io"
-twitter_username: ciforios
+twitter_username: 
 github_username:  ciforios
-facebook_username:  ciforios
+facebook_username:  
 
 # Build settings
 markdown: redcarpet
