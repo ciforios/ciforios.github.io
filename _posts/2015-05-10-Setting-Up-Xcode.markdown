@@ -12,7 +12,7 @@ Now that we have created everything we need for code signing our application in 
 ####Creating a new project
 When you create a new project Xcode will ask you for a product name, an organization name and an organization identifier. At this point it is important that these values match with the related ones of the App ID(s) you've created earlier. 
 
->Note: Make sure that you pay attention to case sensivity!
+>Note: Make sure that you pay attention to case sensitivity!
 
 ![image](/img/xcode-create-project.png)
 
