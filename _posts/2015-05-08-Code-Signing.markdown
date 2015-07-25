@@ -44,7 +44,11 @@ An App ID is a unique identifier whose primary use is to specify which apps are 
 
 *com*.*domainname*.*applicationname*
 
-> Note: Developing for the Apple Watch forces you to create 2 supplementary App IDs for the WatchKit App and the WatchKit Extension in addition to your "normal" iOS App ID
+> Note: Developing for the Apple Watch forces you to create 2 supplementary App IDs for the WatchKit App and the WatchKit Extension in addition to your "normal" iOS App ID. These additional App IDs are contructed after the following scheme:
+>
+> WatchKit App: *com*.*domainname*.*applicationname*.*watchkitapp*
+> 
+> WatchKit Extension: *com*.*domainname*.*applicationname*.*watchkitapp*.*watchkitextension*
 
 ![image](/img/app-ids.png)
 
