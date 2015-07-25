@@ -12,7 +12,7 @@ Now that we have created everything we need for code signing our application in 
 ####Creating a new project
 When you create a new project Xcode will ask you for a product name, an organization name and an organization identifier. At this point it is important that these values match with the related ones of the App ID(s) you've created earlier. 
 
->Note: Make sure that you pay attention to case sensitivity!
+> Note: Make sure that you pay attention to case sensitivity!
 
 ![image](/img/xcode-create-project.png)
 
@@ -21,6 +21,6 @@ We also recommend that you specify which Provisioning Profiles should be used by
 
 The utilization of Provisioning Profiles can be specified in the "Build Settings" tab of your target. Navigate to the "Code Signing" section and expand the "Provisioning Profile" tab. Set your development Provisioning Profile for the associated target as "Debug" and the belonging distribution profile as "Release".
 
->Note: Like mentioned, the default Apple Watch project has 3 targets. Please proceed with the other targets accordingly.
+> Note: Like mentioned, the default Apple Watch project has 3 targets. Please proceed with the other targets accordingly.
 
 ![image](/img/xcode-provisioning.png)
