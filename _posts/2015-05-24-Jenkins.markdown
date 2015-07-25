@@ -1,81 +1,98 @@
 ---
 layout:     post
 title:      "Continuous Integration with Jenkins"
-subtitle:   "How to how to"
-date:       2015-05-25 12:00:00
-author:     "The crew"
+subtitle:   "Setting things up and running"
+date:       2015-04-21 12:00:00
+author:     "The Crew"
 header-img: "img/post-bg-06.jpg"
-tags: [jenkins]
+tags: [continuous-integration]
 ---
 
-Within this page we will describe how we set up Jenkins on our Mac to meet our requirements. 
-![alt text]({{ site.url }}/img/jenkins/jenkinsLogo.png)
+<img style="float:left" src="{{ site.url }}/img/jenkins/jenkinsLogo.png" />
+Within this page we will describe how we set up Jenkins on our server to meet our requirements. We choose Jenkins because it's the common used CI software. We were considering to use XCode Server from Apple as a CI but due to the restrictions to Apple we were rejecting this idea. 
 
 
 ###Setup
-Download .war file from http://jenkins-ci.org/ -> version 1.620
+Download the latest Jenkins war file from the offical [Jenkins homepage](http://jenkins-ci.org/). 
+On our server machine we moved the war file into the applications folder and created there a separated Jenkins folder but this can be handled by everyone individually.<br>
+Open the terminal and start Jenkins with  
+{% highlight bash %}
+	java -jar /Applications/Jenkins/jenkins.war &
+{% endhighlight %}
+The link to the war files depends where you saved it locally. After firing up the command you might face some error if you don't have at least Java Version 7 installed.<br>
+To upgrade to the latest Java Version you need to do following steps:<br>
+1. Get the latest Java Version from [Oracle](https://www.java.com/de/download/mac_download.jsp). Once you run the installer it will install Java inside the ```/Library/Internet Plug-Ins/JavaAppletPlugin.plugin``` directory. But it doesn't overwrite ```/usr/bin/java``` which is the default directory used by Apple. You can check your version by typing in ```java -version ```<br>
+2. In order to change the version to the just installed one run following commands:
+{% highlight bash %}
+	sudo rm /usr/bin/java
+{% endhighlight %}
+This command will remove the old symbol link which points to ```/System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java``` (That's Apple's 1.6 Java Version). Now you need to set a new symbolic link to the new Java version. 
+{% highlight bash %}
+	sudo ln -s /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java /usr/bin
+{% endhighlight %}
 
-Create Jenkins folder in Application und move war file there
->Hint: *Jenkins requires Java7 or later*.<br>
-Download from https://www.java.com/de/download/mac_download.jsp
-	
-	1. Install Java from pkg. Oracle's installer puts java inside the /Library/Internet Plug-Ins/JavaAppletPlugin.plugin. And it doesn't overwrite /usr/bin/java
-	2. Check java version in terminal -> java -version 
-	3. It won't be set to latest java version. Do following:
-	  * ```sudo rm /usr/bin/java``` -> Remove old symbol link (points to /System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java, which is Apple's 1.6 version)
-	  * ```sudo ln -s /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java /usr/bin``` -> Replace /usr/bin/java symlink
+After that you should be able to successfully start Jenkins via the command
+{% highlight bash %}
+	java -jar /Applications/Jenkins/jenkins.war &
+{% endhighlight %}
+Once done and you don't see any further error messages in the terminal you can reach Jenkins via the Webfrontend [http://localhost:8080/](http://localhost:8080/) and it should look like below.
 
-Start Jenkins via: ```java -jar /Applications/Jenkins/jenkins.war &```
-  * Open Jenkins via Webfrontend: [http://localhost:8080/](http://localhost:8080/)
+![image](/img/jenkins/jenkins_overview.png)
 
-#### Creating Users
+<br>
+### Make everything a little secure
+By default no authentication is required at all. You should activate the security settings though, because Jenkins is usually reachable over the network and without this security feature it is easily accessable.<br>
+In our case the following changes have been made under ```Manage Jenkins->Configure Global Security->Enable Security:```<br>
+Here we activated ```Jenkins own user database``` under the section```Security Realm```, don't forget users to signup. Once everyone is registered you should deactivate this feature again. Otherwise it's still not secure because everyone can register themself and has admin rights. We left the Authorization field as it is on ```Logged-in users can do anything```.<br>
+>Note: If you don't add security realm it will cause an error "/j_acegi_security_check".
 
+Once you finished everything you shouldn't forget to save all your changes.
 
-
-###Security settings
-
-By default no authentication is required<br>
-You should activate the security settings though, because Jenkins is usually reachable over the network and without this security feature it is easily accessable.<br>
-
-In our case the following changes have been made:<br>
-Manage Jenkins->Global Security->Enable Security: <br>
-Security Realm has been activated. Jenkins own user database (with allow users to signup)<br>
-Authorization: Logged-in users can do anything<br>
->Remark: If you don't add security realm it will cause an error "/j_acegi_security_check"
-
-Save changes
+<br>
+###Install Plugins to make your life easier
+There is a multitude of Plugins for Jenkins. For our purposes we came to the conclusion that we need following Plugins:
 
 
-
-###Plugins
-There is a multitude of plugins for Jenkins. For our CI approach we mainly used the folloing 4 plugins.
-
-Slack plugin: [https://wiki.jenkins-ci.org/display/JENKINS/Slack+Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Slack+Plugin)
-
-***
-
-GIT Plugin: [https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin)
-
-***
-Gerrit Trigger: [https://wiki.jenkins-ci.org/display/JENKINS/Gerrit+Trigger](https://wiki.jenkins-ci.org/display/JENKINS/Gerrit+Trigger)
-
+* [**Slack Plugin**](https://wiki.jenkins-ci.org/display/JENKINS/Slack+Plugin)<br>
+To annoy your team and send out notifications whenever someone changed something in the code, this tool is really awesome.
 
 ***
-XCode Integration: [https://wiki.jenkins-ci.org/display/JENKINS/Xcode+Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Xcode+Plugin)
+* [**GIT Plugin**](https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin)<br>
+In order to use Git as a source control management you will need this Plugin.
+
+***
+* [**Gerrit Trigger**](https://wiki.jenkins-ci.org/display/JENKINS/Gerrit+Trigger)<br>
+This will integrate Jenkins to Gerrit code review for triggering builds when a "patch set" is created. 
+
+***
+* [**XCode Integration**](https://wiki.jenkins-ci.org/display/JENKINS/Xcode+Plugin)<br>
+Instead of writing a script where you access Xcode i.e. to build your project you can define those things in the Plugin. It will call Xcode command line tool for you. 
 
 
-You can install plugins under "Manage Jenkins" -> Manage Plugins. <br>
-In this overview table select the tab "Available". <br>
-Select the plugins you want to install and click on the button "Download now and install after restart"
+You can install those Plugins under "Manage Jenkins" -> "Manage Plugins". In this overview table select the tab "Available". Then you can choose the Plugin which you want to install and click on the button "Download now and install after restart". In the next section we gonna tell you what you need to configure that you can use it.
 
-####Configuring Gerrit Trigger
-Configure Plugin in Manage Jenkins->Gerrit Trigger<br>
-Add new server
-Frontend URL: http://192.168.8.10:8081/
-SSH Port: 29418
-Username: jenkins (Need to be added to Gerrit as a new user with admin rights)
-       Using old hdm account from yannik with badgme1
-SSH Keyfile and password. Generated ssh file for Jenkins
+
+###Configuration
+In order to use later those freshly installed Plugins we need to configure them.
+
+####Slack
+1. First you need to get a Slack account: [https://slack.com/](https://slack.com/).
+2. Then you need to configure the Jenkins integration for Slack: [https://my.slack.com/services/new/jenkins-ci](https://my.slack.com/services/new/jenkins-ci). 
+3. After that configure your Slack Plugin. Go to "Manage Jenkins" -> "Configure System". There you'll find a section about Slack "Global Slack Notifier Settings" where you can insert your settings.
+<img style="float:left" src="{{ site.url }}/img/jenkins/settingsSlack.png" /><br>
+
+***
+####XCode Integration
+That the Plugin is able to use the command line tools from Xcode you need to have Xcode installed on the machine. Download it from the AppStore and open it at least once that it can install necessary tools. Later on, if you want to run automated Unit Tests you also need to install some simulators otherwise the jobs won't work. Therefore go to the statusbar in Xcode to "Xcode"->"Preferences". Under the tab "Downloads" it will list you all simulators you can install.
+
+***
+####Gerrit Trigger
+Configure the Gerrit Plugin in "Manage Jenkins" -> "Gerrit Trigger"<br>
+Select "Add new server" on the left and enter a name for your Gerrit server and choose "Gerrit Server with Default Configurations".<br> 
+Enter in the field for "Frontend URL" the server address of your Gerrit with port, in our case it is: http://192.168.8.10:8081/. To connect via SSH we need port: 29418. You then need to enter the username which you added in
+[**Gerrit for Jenkins**](http://ciforios.github.io/2015/06/02/Gerrit-for-jenkins/). Additionaly add the
+SSH Keyfile and password which you generated also in this section. Further changes can be made regarding the values which will be given from Jenkins to Gerrit once triggered.
+
 
 ###Jobs
 For creating a new job, select new item on the left side. 
