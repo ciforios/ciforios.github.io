@@ -38,7 +38,7 @@ You also have to set the username of the jenkins user. You can do that in the us
 
 
 
-####<div name="verifiedLabel"/>The verified label bug
+####<div id="verifiedLabel"/>The verified label bug
 
 The Jenkins Plugin "Gerrit Trigger" expects Gerrit to have the label "Verified" set, which is not by default included in the gerrit config.<br>
 The gerrit label can be added in:<br>
