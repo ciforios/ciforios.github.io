@@ -5,7 +5,7 @@ subtitle:   "This is how we flow"
 date:       2015-06-05 11:31:11
 author:     "The Crew"
 header-img: "img/post-bg-03.jpg"
-tags: [code-review]
+tags: [workflow]
 ---
 
 ## Branching
