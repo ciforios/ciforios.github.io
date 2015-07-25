@@ -3,7 +3,7 @@ layout:     post
 title:      "Do I need this?"
 date:       2015-06-24 12:22:00
 author:     "The Crew"
-header-img: "img/post-bg-01.jpg"
+header-img: "img/lesson-learned.jpg"
 tags: [lessons-learned]
 ---
 
