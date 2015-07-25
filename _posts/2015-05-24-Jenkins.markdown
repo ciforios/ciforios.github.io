@@ -91,7 +91,7 @@ Configure the Gerrit Plugin in "Manage Jenkins" -> "Gerrit Trigger"<br>
 Select "Add new server" on the left and enter a name for your Gerrit server and choose "Gerrit Server with Default Configurations".<br> 
 Enter in the field for "Frontend URL" the server address of your Gerrit with port, in our case it is: http://192.168.8.10:8081/. To connect via SSH we need port: 29418. You then need to enter the username which you added in
 [**Gerrit for Jenkins**](http://ciforios.github.io/2015/06/02/Gerrit-for-jenkins/). Additionaly add the
-SSH Keyfile and password which you generated also in this section.
+SSH Keyfile and password which you generated also in this section. Further changes can be made regarding the values which will be given from Jenkins to Gerrit once triggered.
 
 
 ###Jobs
