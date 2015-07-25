@@ -136,7 +136,7 @@ Enter a project name
 >NOTE: Renaming or deleting the repo is not possible in Gerrit (by default), so choose your name wisely or you will be stuck with a repsitory called "firstTestProject"...
 
 Choose the Rights to inherit from<br>
-If this is the first project you can just inherit from the default "all projects". Yo can also create a new project just to serve as a parent for other projects which then inherit the settings of the parent project.
+If this is the first project you can just inherit from the default "all projects". You can also create a new project just to serve as a parent for other projects which then inherit the settings of the parent project.
 
 ####Cloning the project:
 In projects -> list you should see all of your projects. After clicking on one of them you will see the options page for this project.<br>
@@ -163,6 +163,7 @@ Permitted users can create Projects.
 ### Access
 Pushing is prohibited<br>
 Patch Sets need +2 "Code-Review" and +1 "Verified"
+![Access Settings in Gerrit](/img/gerrit/project_access_settings_gerrit.PNG)<br>
 
 ### Pushing commits to gerrit for reviewing
 ####Initially
