@@ -999,7 +999,10 @@ $('#name').focus(function() {
 
 // make all images responsive
 $(function() {
-	$("img").addClass("img-responsive");
+	$("img").addClass("img-responsive").each(function(){
+        var url = $(this).attr("src");
+        $(this).wrap("<a href='"+ url + "' data-lightbox='image'></div>");
+    });
 });
 
 // responsive tables
