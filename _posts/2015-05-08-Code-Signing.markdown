@@ -60,7 +60,7 @@ An App ID is a unique identifier whose primary use is to specify which apps are 
 
 A Development Provisioning Profile contains a set of Development Certificates, Device Identifiers and an App ID. The Provisioning Profile has to be installed on each device on which you are planning to run your application code.
 
-> Note: For each App ID you registered earlier in Step 3 you need to create one provisioning profile for development and distribution purposes. So if you are working on an Apple Watch project which uses 3 targets you will end up with 6 provisioning profiles (3 development profiles and 3 distribution profiles).
+> Note: For each App ID you registered earlier in Step 3 you need to create one Provisioning Profile for development and distribution purposes. So if you are working on an Apple Watch project which uses 3 targets you will end up with 6 Provisioning Profiles (3 development profiles and 3 distribution profiles).
 
 Once you are done it should look something like the screenshot below:
 
