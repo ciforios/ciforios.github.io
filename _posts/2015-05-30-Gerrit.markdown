@@ -121,7 +121,7 @@ Now the gerrit server should be live and available on the server ip and specifie
 After setting up the server the next thing you will probably want to do is open the Gerrit page and log in (at least that's the first thing we wanted to do^^).
 
 >At this point we ran into a little problem:<br>
->We used the default setting for authentication hoping it was a simple account management. The default being OpenID this was kind of true... The problem was, that Google had just stopped supporting OpenID (1 week before we started the project and switched zo OAuth) and Gerrit didn't support OAuth natively (there is a [plugin](https://github.com/davido/gerrit-oauth-provider "plugin") but we didn't get it runing as fast as we wanted) we decided to create new accounts at one of the pages proposed by Gerrit (some chose Yahoo ID, some Launchpad.net)
+>We used the default setting for authentication hoping it was a simple account management. The default being OpenID this was kind of true... The problem was, that Google had just stopped supporting OpenID (1 week before we started the project and switched to OAuth) and Gerrit didn't support OAuth natively (there is a [plugin](https://github.com/davido/gerrit-oauth-provider "plugin") but we didn't get it running as fast as we wanted) we decided to create new accounts at one of the pages proposed by Gerrit (some chose Yahoo ID, some Launchpad.net)
 
 If you have access to an ldap server the easiest way to log in is probably using that server (you will have to do the configuration again and choose ldap as authentication method).
 
