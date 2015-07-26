@@ -132,7 +132,7 @@ If you have access to an LDAP-server, the easiest way for you to log in is proba
 ####Creating a Project:
 In order to create a new project in Gerrit, log in with your previously created account. Then, select the "Projects" tab in the top bar and hit "Create New Project".
 
-Next, enter a project name
+Next, enter a name for your project.
 >NOTE: Renaming or deleting the repo (project) is not possible in Gerrit (by default), so choose your name wisely or you will be stuck with a repsitory called "firstTestProject"...
 
 After that, choose the Rights to inherit from:<br>
@@ -164,6 +164,7 @@ You can see some of the access restrictions that we defined for our project in t
 
 - Pushing is prohibited
 - Patch Sets need +2 "Code-Review" and +1 "Verified" in order to pass
+
 ![Access Settings in Gerrit](/img/gerrit/project_access_settings_gerrit.PNG)<br>
 
 ## Pushing commits to Gerrit for reviewing
@@ -177,7 +178,7 @@ Rename the remote path of your Gerrit folder to Gerrit:
 {% highlight bash %}
 git remote rename origin gerrit
 {% endhighlight %}
-
+<br>
 
 #####Creating "PatchSets" (commits that others should review):
 1. Make changes to your local files
