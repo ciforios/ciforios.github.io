@@ -178,7 +178,6 @@ Rename the remote path of your Gerrit folder to Gerrit:
 {% highlight bash %}
 git remote rename origin gerrit
 {% endhighlight %}
-<br>
 
 #####Creating "PatchSets" (commits that others should review):
 1. Make changes to your local files
