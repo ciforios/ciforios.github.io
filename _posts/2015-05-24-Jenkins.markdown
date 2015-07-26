@@ -129,6 +129,5 @@ As build trigger you select "Gerrit event".<br>
 * "Choose a Server". There you select your Gerrit server which you set earlier in the overall settings.
 * Next you need to decide when you want to trigger. We added "Patchset Created" that will trigger when a new change or patch set is uploaded.
 ![image](/img/jenkins/settingsGerritTrigger.png)
-
 * Below "Dynamic Trigger Configuration" you specify what Gerrit projects to trigger a build on. In our case we said that we want to listen on the project pattern "badgeme-app" within the branch pattern with "dev_demo", which is our branch in our project. ![image](/img/jenkins/jobSettingsGerritTrigger.png)
 
