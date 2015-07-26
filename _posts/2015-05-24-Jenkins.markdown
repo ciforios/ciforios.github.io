@@ -107,7 +107,9 @@ We describe the common settings how we use it in our project before we go into t
 ***
 **Slack Notifications**<br>
 In the first section are settings about Slack configured. We set a checkmark for "Notify Failure" and "Notify Success" so that we get notified in those two cases.
-![image](/img/jenkins/jobSettingsSlack.png)
+![image](/img/jenkins/jobSettingsSlack.png)<br>
+That notifications are sent you need to add a "Post-build Actions", select "Slack notifications". Once done it should sent notifications.
+
 ***
 **Source Code Management**
 
