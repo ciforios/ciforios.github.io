@@ -107,12 +107,14 @@ We describe the common settings how we use it in our project before we go into t
 ***
 **Slack Notifications**<br>
 In the first section are settings about Slack configured. We set a checkmark for "Notify Failure" and "Notify Success" so that we get notified in those two cases.
-![image](/img/jenkins/jobSettingsSlack.png)
+![image](/img/jenkins/jobSettingsSlack.png)<br>
+That notifications are sent you need to add a "Post-build Actions", select "Slack notifications". Once done it should sent notifications.
+
 ***
 **Source Code Management**
 
 * In the section "Source Code Management" select Git. For the Repository URL you'll need to enter the URL of your Gerrit added with the project name if you use Gerrit, in our case "http://192.168.8.10:8081/badgeme-app". When not using Gerrit just link to your Git project.
-* Further more for Gerrit you need to set under Advance Refspec to "$GERRIT_REFSPEC". 
+* Further more for using Gerrit you need to click on the "Advance" button and under Refspec write "$GERRIT_REFSPEC". 
 * "Branches to build" needs "$GERRIT_BRANCH" as a parameter. 
 * In "Additional Behaviours" you need to add "Strategy for choosing what to build". There you would select as "choosing strategy" your Gerrit Trigger.<br>
 ![image](/img/jenkins/jobSettingsGit.png)
@@ -125,5 +127,3 @@ As build trigger you select "Gerrit event".<br>
 * "Choose a Server". There you select your Gerrit server which you set earlier in the overall settings.
 * Below "Dynamic Trigger Configuration" you specify what Gerrit projects to trigger a build on. In our case we said that we want to listen on the project pattern "badgeme-app" within the branch pattern with "dev_demo", which is our branch in our project. ![image](/img/jenkins/jobSettingsGerritTrigger.png)
 
-
-####Build and upload master branch
