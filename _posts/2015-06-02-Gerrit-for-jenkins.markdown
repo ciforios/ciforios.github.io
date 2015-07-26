@@ -10,39 +10,35 @@ tags: [code-review, continuous-integration]
 
 ## Setting up Gerrit for Jenkins (Gerrit Trigger)
 ####Adding Jenkins user
-In order to allow jenkins to make changes to projects (eg. review a PatchSet based on whether it builds or not) jenkins needs its own user account in gerrit.
->As discussein in the previous post, our accounts had to be OpenID accounts, so we had to create another Launchpad account for jenkins using a new email address
+In order to allow jenkins to make changes to projects (eg. review a PatchSet based on whether it builds or not), jenkins needs its own user account in gerrit.
+> As discussed in in the [previous post](http://ciforios.github.io/2015/05/30/Gerrit/), our accounts had to be OpenID accounts, so we had to create another Launchpad account for jenkins using a new email address.
 
 After the user is created, you have to add it to a special group, in our case called "Non-Interactive Users".
->NOTE: Log in with your Admin account.
+> Note: Log in with your Admin account.
 
-You can achieve this by clicking People -> List Groups (in case the group already exists) or People -> Create New Group (in case you dont't have a group for external tools).<br>
+You can achieve this by clicking People > List Groups (in case the group already exists) or People > Create New Group (in case you dont't have a group for external tools).<br>
 
-You also have to change the project settings accordingly, so that the "Non-Interactive Users" are allowed to set the label (in our case "verified" +1 or -1 and "Code-Review" +1 or -1).<br>le
->NOTE: If you don't have the verified label, but would like to add it, please follow the instructions [below](#verifiedLabel)
+You also have to change the project settings accordingly, so that the "Non-Interactive Users" are allowed to set the label (in our case "verified" +1 or -1 and "Code-Review" +1 or -1).<br>
+> Note: If you don't have the verified label, but would like to add it, please follow the instructions [below](#verifiedLabel).
 
 ![Access Settings in Gerrit](/img/gerrit/project_access_settings_gerrit.PNG)<br>
-This can be achived by selecting the project (Projects -> List -> &lt;Project Name&gt;). This should redirect you to the Access tab of this project. Then select "Edit" to edit the Access Settings.
->NOTE: In case you are not allowed to edit the settings, you might not be logged in, or you don't have admin rights.
-NOTE: In case the verified label doesn't exist, follow the steps below.
+This can be achived by selecting the project (Projects > List > *Project Name*). This should redirect you to the access tab of the project. Then select "Edit" to edit the Access Settings.
+> Note: In case you aren't allowed to edit the settings, you might not be logged in, or you don't have admin rights.
+Note: In case the verified label doesn't exist, follow the steps [below](#verifiedLabel).
 
-In order to allow a secure communication the jenkins user also requires a ssh key. Therefore you will have to create a private and public key on the host machine that is running jenkins, and allow communication from the machine running gerrit.<br>
+In order to allow a secure communication the jenkins user also requires a ssh key. Therefore you'll have to create a private and public key on the host machine that is running jenkins and allow communication from the machine running gerrit.<br>
 In gerrit, you also have to add the public key to the jenkins user.
->NOTE: Log in with the jenkins user
+> Note: Don't forget to log in with the jenkins user.
 
-To add the Public key, hit the username in the top right corner (should be jenkins) and click "Settings". In the settings menu choose "SSH Public Keys" and add the Public Key you created on the jenkins machine.
+To add the public key, hit the username in the top right corner (should be jenkins) and click "Settings". In the settings menu choose "SSH Public Keys" and add the Public Key you created on the jenkins machine.
 
-You also have to set the username of the jenkins user. You can do that in the user Settings under "Settings". This is the username you have to enter in Gerrit Trigger in jenkins.
-
-
-
-
+You also have to set the username of the jenkins user. You can do that in the user Settings within "Settings". This is the username you have to enter in Gerrit Trigger in jenkins.
 
 ####<div id="verifiedLabel"/>The verified label bug
 
-The Jenkins Plugin "Gerrit Trigger" expects Gerrit to have the label "Verified" set, which is not by default included in the gerrit config.<br>
+The Jenkins Plugin "Gerrit Trigger" expects Gerrit to have the label "Verified" set, which isn't included in the gerrit config by default.<br>
 The gerrit label can be added in:<br>
-Projects -> List -> All Projects -> General -> Edit Config<br>
+Projects > List > All Projects > General > Edit Config<br>
 by adding the following in the bottom of the document:
 {% highlight bash %}
 [label "Verified"]
@@ -53,20 +49,20 @@ by adding the following in the bottom of the document:
 	value = +1 Verified
 	defaultValue = 0
 {% endhighlight %}
-After saving, go to All -> Open and you will see a open review "Change Config". Open it, hit "Publish" then "Code-Review +2" and then Submit.<br>
-Depending on your project settings you might not want the verified label to have the -2 value. <br>
-In our case we wanted to be able to override the jenkins opinion if necessary (partly because in the beginning Jenkins was not 100% reliable). Merging a PatchSet in Gerrit is not possible, when the lowest value of a label is set(once a user reviews a PatchSet with the lowest value, the PatchSet is blocked).
-		
+After saving, go to All > Open and you will see an open review "Change Config". Open it, hit "Publish" then "Code-Review +2" and then Submit.<br>
+Depending on your project settings, you might not want the verified label to have the -2 value. <br>
+In our case we wanted to be able to override the jenkins opinion if necessary (partly because in the beginning, Jenkins was not 100% reliable). Merging a PatchSet in Gerrit is not possible, when the lowest value of a label is set (once a user reviews a PatchSet with the lowest value, the PatchSet is blocked).
 
->NOTE: Alternatively to adding the verified label, you can also change the ssh command of gerrit trigger and remove the "-v" part.
+> Note: Alternatively to adding the verified label, you can also change the ssh command of gerrit trigger and remove the "-v" part.
 
-After adding the Verified Label, it is also necessary to add the permissions for groups to change the verified status of a review.<br>
-Projects -> List -> All Projects -> Access -> Edit<br>
-Under the point "Reference: refs/heads/*" hit "Add Permission" and choose "Label Verified". Then add the groups that should be allowed to change the verified state. E.g. Admins and Non-Interactive Users (the group containing Jenkins).
+After adding the Verified Label, it's also necessary to add the permissions for groups to change the verified status of a review.<br>
+Therefore, navigate to Projects > List > All Projects > Access > Edit<br>
+Just below "Reference: refs/heads/*" hit "Add Permission" and choose "Label Verified". Then add the groups that should be allowed to change the verified state, e.g. Admins and Non-Interactive Users (the group containing Jenkins).
 
->This error is not easily visible since no error is thrown in the jenkins log. In our case the symptoms were, that jenkins did set the "jenkins started building" message, but did not set a review after the build was done. You can identify this problem by taking a look at the ssh log files of gerrit/jenkins.
+> Note: This error is not easily visible since no error is thrown in the jenkins log. In our case the symptoms were, that jenkins did set the "jenkins started building" message, but did not set a review after the build was done. You can identify this problem by taking a look at the ssh log files of gerrit/jenkins.
 
 Further info on Gerrit labels see: <br>
-[https://gerrit-review.googlesource.com/Documentation/config-labels.html](https://gerrit-review.googlesource.com/Documentation/config-labels.html)<br>
+[https://gerrit-review.googlesource.com/Documentation/config-labels.html](https://gerrit-review.googlesource.com/Documentation/config-labels.html)
+
 Regarding the Gerrit Trigger "bug" see: <br>
 [https://code.google.com/p/gerrit/issues/detail?id=1963](https://code.google.com/p/gerrit/issues/detail?id=1963)
