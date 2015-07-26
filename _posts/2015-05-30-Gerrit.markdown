@@ -161,8 +161,9 @@ Permitted users can create Projects.
 
 ### Access
 You can see some of the access restrictions that we defined for our project in the screenshot below. Among the important ones are:
-* Pushing is prohibited
-* Patch Sets need +2 "Code-Review" and +1 "Verified" in order to pass
+
+- Pushing is prohibited
+- Patch Sets need +2 "Code-Review" and +1 "Verified" in order to pass
 ![Access Settings in Gerrit](/img/gerrit/project_access_settings_gerrit.PNG)<br>
 
 ## Pushing commits to Gerrit for reviewing
