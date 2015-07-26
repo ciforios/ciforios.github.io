@@ -165,7 +165,7 @@ Pushing is prohibited<br>
 Patch Sets need +2 "Code-Review" and +1 "Verified"
 ![Access Settings in Gerrit](/img/gerrit/project_access_settings_gerrit.PNG)<br>
 
-### Pushing commits to gerrit for reviewing
+## Pushing commits to gerrit for reviewing
 ####Initially
 Install git-review on your mac 
 
@@ -185,6 +185,7 @@ Push your changes to gerrit with git review.
 git review [BRANCH]
 {% endhighlight %}
 >you can also put your current working branch in the ".gitreview" file. E.g. defaultbranch=dev
+>NOTE: the login information to push changes to gerrit can be found in the user settings on gerrit. You can choose between ssh and http. In case of http you have to generate another password under [YOUR USERNAME](top right corner) -> Settings  -> HTTP LOGIN
 
 For more information about git review see:<br>
 [https://www.mediawiki.org/wiki/Gerrit/git-review](https://www.mediawiki.org/wiki/Gerrit/git-review)
