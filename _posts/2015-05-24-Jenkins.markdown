@@ -114,9 +114,11 @@ That notifications are sent you need to add a "Post-build Actions", select "Slac
 **Source Code Management**
 
 * In the section "Source Code Management" select Git. For the Repository URL you'll need to enter the URL of your Gerrit added with the project name if you use Gerrit, in our case "http://192.168.8.10:8081/badgeme-app". When not using Gerrit just link to your Git project.
-* Further more for using Gerrit you need to click on the "Advance" button and under Refspec write "$GERRIT_REFSPEC". 
-* "Branches to build" needs "$GERRIT_BRANCH" as a parameter. 
-* In "Additional Behaviours" you need to add "Strategy for choosing what to build". There you would select as "choosing strategy" your Gerrit Trigger.<br>
+* Further changes which are needed when using Gerrit
+  * You need to click on the "Advance" button and under Refspec write "$GERRIT_REFSPEC". 
+  * "Branches to build" needs "$GERRIT_BRANCH" as a parameter. 
+  * In "Additional Behaviours" you need to add "Strategy for choosing what to build". There you would select as "choosing strategy" your Gerrit Trigger.<br>
+  
 ![image](/img/jenkins/jobSettingsGit.png)
 
 ***
