@@ -24,7 +24,7 @@ java -jar gerrit.war init -d path/to/site/folder
 
 This will create the folder you provide in the "-d" argument and start the initialisation dialog. You can run this command again on an already existing gerrit folder to change its configuration.
 
-Below you can see the configuration dialog from our setup. We went with the default options in most cases (except the http port to listen on, which we set to 8081 because 8080 is already used for jenkins. Also, we didn't install bouncy castle).
+Below you can see the configuration dialog from our setup. We went with the default options in most cases (except the http port to listen on, which we set to 8081 because 8080 is already used for Jenkins. Also, we didn't install bouncy castle).
 {% highlight bash %}
 bash-3.2$ java -jar /Applications/Gerrit/gerrit-2.11.war init -d badgeme
 Using secure store: com.google.gerrit.server.securestore.DefaultSecureStore
@@ -161,8 +161,8 @@ Permitted users can create Projects.
 
 ### Access
 You can see some of the access restrictions that we defined for our project in the screenshot below. Among the important ones are:
-- Pushing is prohibited
-- Patch Sets need +2 "Code-Review" and +1 "Verified" in order to pass
+* Pushing is prohibited
+* Patch Sets need +2 "Code-Review" and +1 "Verified" in order to pass
 ![Access Settings in Gerrit](/img/gerrit/project_access_settings_gerrit.PNG)<br>
 
 ## Pushing commits to Gerrit for reviewing
@@ -176,6 +176,7 @@ Rename the remote path of your Gerrit folder to Gerrit:
 {% highlight bash %}
 git remote rename origin gerrit
 {% endhighlight %}
+
 
 #####Creating "PatchSets" (commits that others should review):
 1. Make changes to your local files
