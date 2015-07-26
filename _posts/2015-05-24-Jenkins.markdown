@@ -4,7 +4,7 @@ title:      "Continuous Integration with Jenkins"
 subtitle:   "Setting things up and running"
 date:       2015-04-21 12:00:00
 author:     "The Crew"
-header-img: "img/post-bg-06.jpg"
+header-img: "img/ci-bg.jpg"
 tags: [continuous-integration]
 ---
 
