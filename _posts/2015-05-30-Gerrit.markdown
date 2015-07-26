@@ -10,21 +10,21 @@ tags: [code-review]
 
 ##Setting up Gerrit
 
-The very first thing you will want to do is creating a new user for running Gerrit. In our case called "gerrit", and log into that user. 
+The very first thing you'll want to do is to create a new user on the machine you're intending to run Gerrit on. In our case, we created a user called "gerrit". Then, log into that user.
 
-The next thing you will have to do is download the official java package<br>
-download gerrit.war from [Official Gerrit page](https://code.google.com/p/gerrit)
+The next thing you'll have to do is download the official java package.<br>
+Download gerrit.war from the [Official Gerrit page](https://code.google.com/p/gerrit)
 
-execute 
+Then enter the following command into your command line:
 {% highlight bash %}
 java -jar gerrit.war init -d path/to/site/folder
 {% endhighlight %}
 
->NOTE: the path/to/site/folder should be a folder you don't need admin access to change (e.g. ~/gerritSite)
+> Note: The "path/to/site/folder" should be a folder you don't need admin access to change (e.g. ~/gerritSite)
 
 This will create the folder you provide in the "-d" argument and start the initialisation dialog. You can run this command again on an already existing gerrit folder to change its configuration.
 
-Below you can see the configuration dialog in our case. We went with the default options in most cases (except the http port to listen on, which we set to 8081 because 8080 is already used for jenkins. We also didn't install bouncy castle).
+Below you can see the configuration dialog from our setup. We went with the default options in most cases (except the http port to listen on, which we set to 8081 because 8080 is already used for jenkins. Also, we didn't install bouncy castle).
 {% highlight bash %}
 bash-3.2$ java -jar /Applications/Gerrit/gerrit-2.11.war init -d badgeme
 Using secure store: com.google.gerrit.server.securestore.DefaultSecureStore
@@ -115,82 +115,83 @@ Waiting for server on mrs.mmlab.mintern.mi.hdm-stuttgart.de:8081 ... OK
 Opening http://mrs.mmlab.mintern.mi.hdm-stuttgart.de:8081/#/admin/projects/ ...OK
 {% endhighlight %}
 
-Now the gerrit server should be live and available on the server ip and specified port and on the "Canonical URL" gerrit shows in the end of the setup dialog.
+Now the Gerrit server should be live and available both via Server IP + specified port and with the "Canonical URL" that is shown at the end of the setup dialog.
 
 ##Login:
-After setting up the server the next thing you will probably want to do is open the Gerrit page and log in (at least that's the first thing we wanted to do^^).
+After setting up the server the next thing you'll probably want to do is open the Gerrit page and log in (at least that's the first thing we wanted to do).
 
->At this point we ran into a little problem:<br>
->We used the default setting for authentication hoping it was a simple account management. The default being OpenID this was kind of true... The problem was, that Google had just stopped supporting OpenID (1 week before we started the project and switched to OAuth) and Gerrit didn't support OAuth natively (there is a [plugin](https://github.com/davido/gerrit-oauth-provider "plugin") but we didn't get it running as fast as we wanted) we decided to create new accounts at one of the pages proposed by Gerrit (some chose Yahoo ID, some Launchpad.net)
+> At this point we ran into a little problem:<br>
+> We used the default setting for authentication hoping it was a simple account management. For OpenID being the default method, this was kind of true... The problem was that Google had just stopped supporting OpenID (1 week before we started the project) and switched to OAuth. Since Gerrit didn't support OAuth natively (there is a [plugin](https://github.com/davido/gerrit-oauth-provider "plugin") but we didn't get it running as fast as we were hoping) we decided to create new accounts at one of the pages proposed by Gerrit (some chose Yahoo ID, others chose Launchpad.net).
 
-If you have access to an ldap server the easiest way to log in is probably using that server (you will have to do the configuration again and choose ldap as authentication method).
+If you have access to an LDAP-server, the easiest way for you to log in is probably using that server (you will have to do the configuration again and choose LDAP as authentication method).
 
 > The account of the first person who logs in is automatically turned into admin account.
 > The admin can distribute rights to other users.
 
 
 ####Creating a Project:
-Projects -> Create Project
+In order to create a new project in Gerrit, log in with your previously created account. Then, select the "Projects" tab in the top bar and hit "Create New Project".
 
-Enter a project name
->NOTE: Renaming or deleting the repo is not possible in Gerrit (by default), so choose your name wisely or you will be stuck with a repsitory called "firstTestProject"...
+Next, enter a project name
+>NOTE: Renaming or deleting the repo (project) is not possible in Gerrit (by default), so choose your name wisely or you will be stuck with a repsitory called "firstTestProject"...
 
-Choose the Rights to inherit from<br>
+After that, choose the Rights to inherit from:<br>
 If this is the first project you can just inherit from the default "all projects". You can also create a new project just to serve as a parent for other projects which then inherit the settings of the parent project.
 
 ####Cloning the project:
-In projects -> list you should see all of your projects. After clicking on one of them you will see the options page for this project.<br>
-In the Project options page you can see (amongst other settings) the URL to use for cloning the git repository.
-
+From the "Projects" selection in the top bar, you can see a list of all projects by clicking onto "List" below. After clicking on one of them you'll see the options page for this project.<br>
+In the project options page you can see (amongst other settings) the URL to use for cloning the git repository like you would normally do.
 
 ####Deleting Projects:
-Deleting projects is not possible by default (probably because projects might depend on other projects, so deleting on project in the chain could have severe ramifications for other projects).<br>
->there is a [plugin](https://gerrit-review.googlesource.com/#/admin/projects/plugins/delete-project) that allows deleting projects, but we just deleted the whole gerrit folder and ran the init comand again 
+As mentioned earlier, deleting projects isn't possible by default (Gerrit prevents you from deleting projects because they have dependencies among themselves. Thus, deleting one project in the chain could have severe ramifications for other projects).<br>
+> There is a [plugin](https://gerrit-review.googlesource.com/#/admin/projects/plugins/delete-project) that allows deleting projects, but we just deleted the whole Gerrit folder and ran the init comand again.
 
 ####Git:
-Internally gerrit sets up a fully functional git repository which you can clone and push reviews to.<br>
-Each project has a unique git url you can see in the project options.
->if you want to set up git replica on an external server make sure that the name of the repositories match in case you want to mirror multiple repos without specifing a destination address for each repo. We also needed to add credentials to the gerrit config. 
+Internally Gerrit sets up a fully functional git repository which you can clone and push reviews to.<br>
+Each project has a unique git URL you can see in the project options.
+> If you want to set up a git replica on an external server make sure that the name of the repositories match in case you want to mirror multiple repositories without specifing a destination address for each repository. We also needed to add credentials to the Gerrit config. 
 
 ##Permissions:
 ####Projects -> Access
-Can be set for groups, Project Owners, Admins and Registered Users.
-Permissions include: Who is allowed to Read, Push, Submit changes. 
+Can be set for Groups, Project Owners, Admins and Registered Users.
+Permissions include things like: Who is allowed to Read, Push or Submit changes. 
 In addition it can be defined, how much influence certain groups should have over the reviewing process.
 Permitted users can create Projects.
 
 
 ### Access
-Pushing is prohibited<br>
-Patch Sets need +2 "Code-Review" and +1 "Verified"
+You can see some of the access restrictions that we defined for our project in the screenshot below. Among the important ones are:
+- Pushing is prohibited
+- Patch Sets need +2 "Code-Review" and +1 "Verified" in order to pass
 ![Access Settings in Gerrit](/img/gerrit/project_access_settings_gerrit.PNG)<br>
 
-## Pushing commits to gerrit for reviewing
+## Pushing commits to Gerrit for reviewing
 ####Initially
 Install git-review on your mac 
 
 	brew install git-review
-(for installation on other operating systems see: http://www.mediawiki.org/wiki/Gerrit/git-review)
+> Note: For installation on other operating systems see: http://www.mediawiki.org/wiki/Gerrit/git-review
 
-Rename the remote path of your gerrit folder to gerrit:
+Rename the remote path of your Gerrit folder to Gerrit:
 {% highlight bash %}
 git remote rename origin gerrit
 {% endhighlight %}
-#####Creating "PatchSets" (commits that others should review):
-//Make your changes<br/>
-//commit your changes (git commit ...) <br/>
 
-Push your changes to gerrit with git review. 
+#####Creating "PatchSets" (commits that others should review):
+1. Make changes to your local files
+2. Commit your changes (git commit ...)
+3. Push your changes to Gerrit with git review
+ 
 {% highlight bash %}
 git review [BRANCH]
 {% endhighlight %}
->you can also put your current working branch in the ".gitreview" file. E.g. defaultbranch=dev<br>
->NOTE: the login information to push changes to gerrit can be found in the user settings on gerrit. You can choose between ssh and http. In case of http you have to generate another password under [YOUR USERNAME](top right corner) -> Settings  -> HTTP LOGIN
+> You can also put your current working branch in the ".gitreview" file, e.g. defaultbranch=dev<br>
+> Note: The login information to push changes to Gerrit can be found in the user settings on Gerrit. You can choose between SSH and HTTP. In case of http you have to generate another password under *YOUR USERNAME* (top right corner) > Settings  > HTTP LOGIN
 
 For more information about git review see:<br>
 [https://www.mediawiki.org/wiki/Gerrit/git-review](https://www.mediawiki.org/wiki/Gerrit/git-review)
 
 ###Gerrit and Branches
-The branch to push to can be specified when submitting reviews.<br/>
-Branches can be created using the Gerrit UI under Projects -> List -> [PROJECT_NAME] -> Branches
-If you create e.g. a dev branch and want to point it to the current Revision of the branch with the name "master" just enter "master" in the Revision field.
+The branch to push to can be specified when submitting reviews.<br>
+Branches can be created using the Gerrit UI under Projects > List > *PROJECT_NAME* > Branches<br>
+If you create e.g. a dev branch and want to point it to the current revision of the branch with the name "master" just enter "master" in the revision field.
