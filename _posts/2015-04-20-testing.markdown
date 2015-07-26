@@ -4,7 +4,7 @@ title:      "Automated testing with Xcode and Jenkins"
 subtitle:   "Setting up a the Xcode-Project and a Jenkins job"
 date:       2015-04-24 11:20:00
 author:     "The Crew"
-header-img: "img/post-bg-04.jpg"
+header-img: "img/ci-bg.jpg"
 tags: [continuous-integration]
 ---
 

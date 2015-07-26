@@ -184,7 +184,7 @@ Push your changes to gerrit with git review.
 {% highlight bash %}
 git review [BRANCH]
 {% endhighlight %}
->you can also put your current working branch in the ".gitreview" file. E.g. defaultbranch=dev
+>you can also put your current working branch in the ".gitreview" file. E.g. defaultbranch=dev<br>
 >NOTE: the login information to push changes to gerrit can be found in the user settings on gerrit. You can choose between ssh and http. In case of http you have to generate another password under [YOUR USERNAME](top right corner) -> Settings  -> HTTP LOGIN
 
 For more information about git review see:<br>
