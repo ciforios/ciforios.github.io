@@ -9,3 +9,6 @@ tags: [lessons-learned, continuous-integration]
 ---
 
 ## A quick summary of what we learned about Jenkins
+- Is very powerful and versatile
+ - There are many open source plugins, even for  the integration of newer services like slack
+- Easy setup and integrated authentication and user management
