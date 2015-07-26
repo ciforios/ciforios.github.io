@@ -4,7 +4,7 @@ title:      "Talking to Jenkins"
 subtitle:   "Preparing Gerrit for Jenkins integration"
 date:       2015-06-02 09:12:13
 author:     "The Crew"
-header-img: "img/post-bg-03.jpg"
+header-img: "img/codereview-bg.jpg"
 tags: [code-review, continuous-integration]
 ---
 
