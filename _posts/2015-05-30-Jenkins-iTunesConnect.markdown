@@ -5,7 +5,7 @@ subtitle:   "Distribute your cool stuff"
 date:       2015-05-30 12:35:33
 author:     "The Crew"
 header-img: "img/post-bg-03.jpg"
-tags: [continuous-delivery]
+tags: [continuous-delivery, jenkins]
 ---
 
 Instead of manually distribute our ipa files to users/testers we decided to have a Jenkins Job for that.<br>
