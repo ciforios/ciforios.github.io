@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Talking to Jenkins"
-subtitle:   "Preparing Gerrit for Jenkins integration"
+subtitle:   "Preparing Gerrit for Jenkins Integration"
 date:       2015-06-02 09:12:13
 author:     "The Crew"
 header-img: "img/codereview-bg.jpg"
@@ -10,8 +10,8 @@ tags: [code-review, continuous-integration]
 
 ## Setting up Gerrit for Jenkins (Gerrit Trigger)
 ####Adding Jenkins user
-In order to allow jenkins to make changes to projects (eg. review a PatchSet based on whether it builds or not), it needs its own user account in gerrit.
-> As discussed in the [previous post](http://ciforios.github.io/2015/05/30/Gerrit/), our accounts had to be OpenID accounts, so we had to create another Launchpad account for jenkins using a new email address.
+In order to allow Jenkins to make changes to projects (eg. review a PatchSet based on whether it builds or not), it needs its own user account in Gerrit.
+> As discussed in the [previous post](http://ciforios.github.io/2015/05/30/Gerrit/), our accounts had to be OpenID accounts, so we had to create another Launchpad account for Jenkins using a new email address.
 
 After the user is created, you have to add it to a special group, in our case called "Non-Interactive Users".
 > Note: You must be logged into your admin account to do that.
@@ -26,20 +26,20 @@ This can be achived by selecting the project (Projects > List > *Project Name*).
 > Note: In case you aren't allowed to edit the settings, you might not be logged in, or you don't have admin rights.
 Note: In case the verified label doesn't exist, follow the steps [below](#verifiedLabel).
 
-In order to allow a secure communication the jenkins user also requires a SSH key. Therefore you'll have to create a private and public key on the host machine that is running jenkins and allow communication from the machine running gerrit. If you're on a UNIX system, you should be able to run *ssh-keygen* in your terminal and follow the instructions until you have your pair of keys.
-> Note: Make sure **not** to enter a passphrase when creating the SSH keys because otherwise, jenkins won't be able to log into gerrit. It will show the error "Bad SSH key or passphrase" when testing the connection, see [https://issues.jenkins-ci.org/browse/JENKINS-20879](https://issues.jenkins-ci.org/browse/JENKINS-20879).
+In order to allow a secure communication the Jenkins user also requires a SSH key. Therefore you'll have to create a private and public key on the host machine that is running Jenkins and allow communication from the machine running gerrit. If you're on a UNIX system, you should be able to run *ssh-keygen* in your terminal and follow the instructions until you have your pair of keys.
+> Note: Make sure **not** to enter a passphrase when creating the SSH keys because otherwise, Jenkins won't be able to log into Gerrit. It will show the error "Bad SSH key or passphrase" when testing the connection, see [https://issues.jenkins-ci.org/browse/JENKINS-20879](https://issues.Jenkins-ci.org/browse/JENKINS-20879).
 
-In gerrit, you also have to add the public key to the jenkins user.
-> Note: Don't forget to log in with the jenkins user.
+In Gerrit, you also have to add the public key to the Jenkins user.
+> Note: Don't forget to log in with the Jenkins user.
 
-To add the public key, hit the username in the top right corner (should be jenkins) and click "Settings". In the settings menu choose "SSH Public Keys" and add the Public Key you created on the jenkins machine.
+To add the public key, hit the username in the top right corner (should be Jenkins) and click "Settings". In the settings menu choose "SSH Public Keys" and add the Public Key you created on the Jenkins machine.
 
-You also have to set the username of the jenkins user. You can do that in the user Settings within "Settings". This is the username you have to enter for Gerrit Trigger in jenkins.
+You also have to set the username of the Jenkins user. You can do that in the user Settings within "Settings". This is the username you have to enter for Gerrit Trigger in Jenkins.
 
 ####<div id="verifiedLabel"/>The verified label bug
 
-The Jenkins Plugin "Gerrit Trigger" expects Gerrit to have the label "Verified" set, which isn't included in the gerrit config by default.<br>
-The gerrit label can be added in:<br>
+The Jenkins Plugin "Gerrit Trigger" expects Gerrit to have the label "Verified" set, which isn't included in the Gerrit config by default.<br>
+The Gerrit label can be added in:<br>
 Projects > List > All Projects > General > Edit Config<br>
 by adding the following in the bottom of the document:
 {% highlight bash %}
@@ -53,15 +53,15 @@ by adding the following in the bottom of the document:
 {% endhighlight %}
 After saving, go to All > Open and you will see an open review "Change Config". Open it, hit "Publish" then "Code-Review +2" and then Submit.<br>
 Depending on your project settings, you might not want the verified label to have the -2 value. <br>
-In our case we wanted to be able to override the jenkins opinion if necessary (partly because in the beginning, Jenkins was not 100% reliable). Merging a PatchSet in Gerrit is not possible, when the lowest value of a label is set (once a user reviews a PatchSet with the lowest value, the PatchSet is blocked).
+In our case we wanted to be able to override the Jenkins opinion if necessary (partly because in the beginning, Jenkins was not 100% reliable). Merging a PatchSet in Gerrit is not possible, when the lowest value of a label is set (once a user reviews a PatchSet with the lowest value, the PatchSet is blocked).
 
-> Note: Alternatively to adding the verified label, you can also change the ssh command of gerrit trigger and remove the "-v" part.
+> Note: Alternatively to adding the verified label, you can also change the ssh command of Gerrit trigger and remove the "-v" part.
 
-After adding the Verified Label, it's also necessary to add the permissions for groups to change the verified status of a review.<br>
+After adding the verified label, it's also necessary to add the permissions for groups to change the verified status of a review.<br>
 Therefore, navigate to Projects > List > All Projects > Access > Edit<br>
 Just below "Reference: refs/heads/*" hit "Add Permission" and choose "Label Verified". Then add the groups that should be allowed to change the verified state, e.g. Admins and Non-Interactive Users (the group containing Jenkins).
 
-> Note: This error is not easily visible since no error is thrown in the jenkins log. In our case the symptoms were, that jenkins did set the "jenkins started building" message, but did not set a review after the build was done. You can identify this problem by taking a look at the ssh log files of gerrit/jenkins.
+> Note: This error is not easily visible since no error is thrown in the Jenkins log. In our case the symptoms were, that Jenkins did set the "Jenkins started building" message, but did not set a review after the build was done. You can identify this problem by taking a look at the ssh log files of Gerrit/Jenkins.
 
 Further info on Gerrit labels see: <br>
 [https://gerrit-review.googlesource.com/Documentation/config-labels.html](https://gerrit-review.googlesource.com/Documentation/config-labels.html)
