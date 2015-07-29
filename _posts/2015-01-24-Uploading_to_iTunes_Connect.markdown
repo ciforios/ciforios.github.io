@@ -24,29 +24,22 @@ In **Build Triggers** we modified the "Gerrit event".
 ###Xcode Plugin
 Now we setup our Xcode Plugin, therefore you need to add a new build step and select "Xcode". 
 ####General build settings
-* As **Target** you choose your Xcode scheme which you want to build for.
-* For **Configuration** we chose "Release". The other posibility would be "Debug" but because this builded IPA would also go live to the iTunes store it's not recommended. 
-* Select **Pack apllication and build .IPA**. As a filename we chose the project name attached with the current Jenkins Job build number "<ProjectName>${BUILD_ID}".
-![image](/img/jenkins/pluginXcodeBuildSettings.png)
+* Instead of choosing the "Debug" configuration, this job will use the "Release" configuration for distribution in TestFlight or App Store.
 
-####Code signing & OS X keychain options
-* In order to generate IPA files for distribution, they need to be code signed because otherwise you could only run the IPA file in a simulator and not on a real device. Make sure you followed the steps in our [earlier post](http://ciforios.github.io/2015/01/28/Code-Signing/) which will import all of the necessary certificates into your keychain. You need to checkmark **Unlock Keychain?** and insert the path to your local keychain where you installed your certificates under **Keychain path** with your given **Keychain password**.
-
-![image](/img/jenkins/pluginXcodeCodeSigning.png)
-
-> Note: This is where we ran into another little problem that might be quite hard to discover when working with VM's or servers on the command line only. Unlocking the keychain didn't work for us automatically so we had to build the project once and specifically allow keychain-access manually when prompted for it. One more thing we noticed here: This dialog will only pop up if you build for a real device - running your project on a simulator will not help you here.
+![image](/img/jenkins/TO_BE_CHANGED.png)
 
 ####Versioning
 In order to have different (increasing) version numbers in your project you need to set the **Technical version**. Unless you update the technical version of your project, iTunes Connect would complain because you would be trying to upload the same IPA with the same version which already exists.<br>
 
 * Check mark **Provide version number and run avgtool?**. In **Technical version** we set the Jenkins build number as our version number with "${BUILD_ID}".
+
 ![image](/img/jenkins/pluginXcodeVersioning.png)
 
 ***
 ###Upload your IPA to iTunes connect
 Last but not least we want to upload the generated IPA file to Testflight aka iTunes Connect. Therefore we added a new **build step** and selected "Execute shell". In the command box we added the following command:<br>
 ```
-/path/to/altool --upload-app -f "/Users/Shared/Jenkins/.jenkins/jobs/${JOB_NAME}/workspace/build/Release-iphoneos/badgeme_${BUILD_ID}.IPA" -u %USERNAME% -p %PASSWORD%
+/path/to/altool --upload-app -f "path/to/file.ipa" -u %USERNAME% -p %PASSWORD%
 ```
 > Note: Normally the path to altool should look something like this: /Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Support/altool
 
