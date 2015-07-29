@@ -22,7 +22,7 @@ java -jar gerrit.war init -d path/to/site/folder
 
 > Note: The "path/to/site/folder" should be a folder you don't need admin access to change (e.g. ~/gerritSite)
 
-This will create the folder you provide in the "-d" argument and start the initialisation dialog. You can run this command again on an already existing gerrit folder to change its configuration.
+This will create the folder you provide in the "-d" argument and start the initialisation dialog. You can run this command again on an already existing Gerrit folder to change its configuration.
 
 Below you can see the configuration dialog from our setup. We went with the default options in most cases (except the http port to listen on, which we set to 8081 because 8080 is already used for Jenkins. Also, we didn't install bouncy castle).
 {% highlight bash %}
@@ -133,9 +133,9 @@ If you have access to an LDAP-server, the easiest way for you to log in is proba
 In order to create a new project in Gerrit, log in with your previously created account. Then, select the "Projects" tab in the top bar and hit "Create New Project".
 
 Next, enter a name for your project.
->NOTE: Renaming or deleting the repo (project) is not possible in Gerrit (by default), so choose your name wisely or you will be stuck with a repsitory called "firstTestProject"...
+>NOTE: Renaming or deleting the repo (project) is not possible in Gerrit (by default), so choose your name wisely or you will be stuck with a repository called "firstTestProject"...
 
-After that, choose the Rights to inherit from:<br>
+After that, choose the rights to inherit from:<br>
 If this is the first project you can just inherit from the default "all projects". You can also create a new project just to serve as a parent for other projects which then inherit the settings of the parent project.
 
 ####Cloning the project:
@@ -153,10 +153,10 @@ Each project has a unique git URL you can see in the project options.
 
 ##Permissions:
 ####Projects -> Access
-Can be set for Groups, Project Owners, Admins and Registered Users.
-Permissions include things like: Who is allowed to Read, Push or Submit changes. 
+Can be set for groups, project owners, admins and registered users.
+Permissions include things like: Who is allowed to read, push or submit changes. 
 In addition it can be defined, how much influence certain groups should have over the reviewing process.
-Permitted users can create Projects.
+Permitted users can create projects.
 
 
 ### Access
