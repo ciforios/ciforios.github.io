@@ -29,32 +29,14 @@ layout: default
 
                 <hr>
                 <ul class="pager">
-                {% assign posts = site.posts | sort:"path" %}
-                {% assign isPrevious = true %}
-                
-                {% for post in posts %}
-                    {% if post.tags[0] == page.tags[0] %}
-                        {% if post.url == page.url %}
-                          {% assign isPrevious = false %}
-                        {% else %}
-                            {% if isPrevious %}
-                                {% assign previousPost = post %}
-                            {% else %}
-                                {% assign nextPost = post %}
-                                {% break %}
-                            {% endif %}
-                        {% endif %}
-                    {% endif %}
-                {% endfor %}
-
-                    {% if previousPost %}
+                    {% if page.next.url %}
                     <li class="previous">
-                        <a href="{{ previousPost.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{previousPost.title}}">&larr; Previous Post</a>
+                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">&larr; Previous Post</a>
                     </li>
                     {% endif %}
-                    {% if nextPost %}
+                    {% if page.previous.url %}
                     <li class="next">
-                        <a href="{{ nextPost.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{nextPost.title}}">Next Post &rarr;</a>
+                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">Next Post &rarr;</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -62,9 +44,12 @@ layout: default
                 <hr>
                 <h4>Related Posts</h4>
                 <ul>
-                {% for post in posts %}
+                {% assign posts = site.posts | sort:"path" | order:descending %}
+                {% for post in site.posts %}
                     {% if post.tags[0] == page.tags[0] %}
-                    <li><a href="{{post.url}}"> {{ post.title }}</a></li>
+                        {% if post.title != page.title %}
+                            <li><a href="{{post.url}}"> {{ post.title }}</a></li>
+                        {% endif %}
                     {% endif %}
                 {% endfor %}
                 </ul>
