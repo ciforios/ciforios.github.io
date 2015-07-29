@@ -4,7 +4,6 @@ title:      "Setting up Gerrit"
 subtitle:   "Initial setup"
 date:       2015-01-27 12:35:33
 author:     "The Crew"
-header-img: "img/codereview-bg.jpg"
 tags: [code-review]
 ---
 
