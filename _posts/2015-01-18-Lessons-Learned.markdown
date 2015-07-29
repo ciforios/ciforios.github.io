@@ -1,12 +1,13 @@
 ---
 layout:     post
 title:      "Do I need this?"
+subtitle:	"It depends ..."
 date:       2015-01-18 12:22:00
 author:     "The Crew"
 tags: [lessons-learned]
 ---
 
-It depends. The tools we used can be really powerful if configured and used correctly. But they can also make your workflow more complicated. <br>
+The tools we used can be really powerful if configured and used correctly. But they can also make your workflow more complicated. <br>
 The biggest benefits of such a pipeline are the increased code quality and the automated building, testing & deploying of the project. <br>
 If you are developing on your own or in a very small team though, the whole pipeline might be too much overhead, because of the additional time required to set up the pipeline and the overhead of using code review.<br>
 On the other hand, once the pipeline is configured, it can be relatively easily adapted for the usage in new projects. <br>

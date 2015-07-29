@@ -135,9 +135,9 @@ Now we setup our Xcode Plugin, therefore you need to add a new build step and se
 ####General build settings
 * As **Target** you choose your Xcode scheme which you want to build for.
 * For **Configuration** we chose "Debug" for development purposes. 
-* Select **Pack apllication and build .IPA** and choose a filename.
+* Select **Pack application and build .IPA** and choose a filename.
 
-![image](/img/jenkins/pluginXcodeBuildSettings.png)
+![image](/img/jenkins/TO_BE_REPLACED.png)
 
 ####Code signing & OS X keychain options
 * In order to generate IPA files for deploying on real devices, they need to be code signed. Make sure you followed the steps in our [earlier post](http://ciforios.github.io/2015/01/28/Code-Signing/) which will import all of the necessary certificates into your keychain. You need to checkmark **Unlock Keychain?** and insert the path to your local keychain where you installed your certificates under **Keychain path** with your given **Keychain password**.

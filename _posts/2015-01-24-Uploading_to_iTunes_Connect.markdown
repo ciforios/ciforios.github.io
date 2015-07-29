@@ -26,7 +26,7 @@ Now we setup our Xcode Plugin, therefore you need to add a new build step and se
 ####General build settings
 * Instead of choosing the "Debug" configuration, this job will use the "Release" configuration for distribution in TestFlight or App Store.
 
-![image](/img/jenkins/TO_BE_CHANGED.png)
+![image](/img/jenkins/pluginXcodeBuildSettings.png)
 
 ####Versioning
 In order to have different (increasing) version numbers in your project you need to set the **Technical version**. Unless you update the technical version of your project, iTunes Connect would complain because you would be trying to upload the same IPA with the same version which already exists.<br>
