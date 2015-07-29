@@ -30,7 +30,9 @@ Now we setup our Xcode Plugin, therefore you need to add a new build step and se
 ![image](/img/jenkins/pluginXcodeBuildSettings.png)
 
 ####Code signing & OS X keychain options
-* In order to generate IPA files for distribution, they need to be code signed because otherwise you could only run the IPA file in a simulator and not on a real device. Make sure you followed the steps in our [earlier post](http://ciforios.github.io/2015/01/28/Code-Signing/) which will import all of the necessary certificates into your keychain.
+* In order to generate IPA files for distribution, they need to be code signed because otherwise you could only run the IPA file in a simulator and not on a real device. Make sure you followed the steps in our [earlier post](http://ciforios.github.io/2015/01/28/Code-Signing/) which will import all of the necessary certificates into your keychain. You need to checkmark **Unlock Keychain?** and insert the path to your local keychain where you installed your certificates under **Keychain path** with your given **Keychain password**.
+
+![image](/img/jenkins/pluginXcodeCodeSigning.png)
 
 > Note: This is where we ran into another little problem that might be quite hard to discover when working with VM's or servers on the command line only. Unlocking the keychain didn't work for us automatically so we had to build the project once and specifically allow keychain-access manually when prompted for it. One more thing we noticed here: This dialog will only pop up if you build for a real device - running your project on a simulator will not help you here.
 
