@@ -10,20 +10,22 @@ tags: [code-review, continuous-integration]
 ## Setting up Gerrit for Jenkins (Gerrit Trigger)
 ####Adding Jenkins user
 In order to allow Jenkins to make changes to projects (eg. review a PatchSet based on whether it builds or not), it needs its own user account in Gerrit.
-> As discussed in the [previous post](http://ciforios.github.io/2015/05/30/Gerrit/), our accounts had to be OpenID accounts, so we had to create another Launchpad account for Jenkins using a new email address.
+> As discussed in the [previous post](http://ciforios.github.io/2015/01/27/Gerrit/), our accounts had to be OpenID accounts, so we had to create another Launchpad account for Jenkins using a new email address.
 
 After the user is created, you have to add it to a special group, in our case called "Non-Interactive Users".
 > Note: You must be logged into your admin account to do that.
 
-You can achieve this by selecting People > List Groups (in case the group already exists) or People > Create New Group (in case you dont't have a group for external tools).<br>
+You can achieve this by selecting People > List Groups (in case the group already exists) or People > Create New Group (in case you dont't have a group for external tools).
 
-You also have to change the project settings accordingly, so that the "Non-Interactive Users" are allowed to set the label (in our case "verified" +1 or -1 and "Code-Review" +1 or -1).<br>
+You also have to change the project settings accordingly, so that the "Non-Interactive Users" are allowed to set the label (in our case "verified" +1 or -1 and "Code-Review" +1 or -1).
+
 > Note: If you don't have the verified label, but would like to add it, please follow the instructions [below](#verifiedLabel).
 
-![Access Settings in Gerrit](/img/gerrit/project_access_settings_gerrit.PNG)<br>
+![Access Settings in Gerrit](/img/gerrit/project_access_settings_gerrit.PNG)
+
 This can be achived by selecting the project (Projects > List > *Project Name*). This should redirect you to the access tab of the project. Then select "Edit" to edit the Access Settings.
 > Note: In case you aren't allowed to edit the settings, you might not be logged in, or you don't have admin rights.
-Note: In case the verified label doesn't exist, follow the steps [below](#verifiedLabel).
+> In case the verified label doesn't exist, follow the steps [below](#verifiedLabel).
 
 In order to allow a secure communication the Jenkins user also requires a SSH key. Therefore you'll have to create a private and public key on the host machine that is running Jenkins and allow communication from the machine running gerrit. If you're on a UNIX system, you should be able to run *ssh-keygen* in your terminal and follow the instructions until you have your pair of keys.
 > Note: Make sure **not** to enter a passphrase when creating the SSH keys because otherwise, Jenkins won't be able to log into Gerrit. It will show the error "Bad SSH key or passphrase" when testing the connection, see [https://issues.jenkins-ci.org/browse/JENKINS-20879](https://issues.Jenkins-ci.org/browse/JENKINS-20879).
