@@ -10,9 +10,9 @@ tags: [workflow]
 
 ## The Workflow
 Our overall workflow includes two stages: Development Stage and Master Stage.<br>
-In the development stage code is created and submitted for review. Aftwerwards jenkins tries to build it and to run the unit tests, depending on the results jenkins will then set the verified label of the PatchSet in Gerrit. Then the code can be reviewed by the team and, in case it does what it is supposed to do, and complies with the teams regulations, it can be merged into the dev branch.
+In the Development Stage code is created and submitted for review. Aftwerwards Jenkins tries to build it and to run the unit tests, depending on the results Jenkins will then set the verified label of the PatchSet in Gerrit. Then the code can be reviewed by the team and, in case it does what it is supposed to do, complies with the teams regulations, it can be merged into the dev branch.
 
-The Master Stage includes merging the dev into the master branch. This again starts with a developer merging locally and creating a merge commit which is then submitted for review in gerrit. In case the merge commit is accepted, the dev branch is merged into the master branch. This leads jenkins to building the Project, creating an .IPA file and distributing it through iTunesConnect and TestFlight between the testers.
+The Master Stage includes merging the dev into the master branch. This again starts with a developer merging locally and creating a merge commit which is then submitted for review in Gerrit. In case the merge commit is accepted, the dev branch is merged into the master branch. This leads Jenkins to building the Project, creating an .IPA file and distributing it through iTunesConnect and TestFlight between testers.
 
 ![Workflow](/img/workflow-master.jpg)
 
@@ -27,4 +27,4 @@ The master contains the newest, stable code which can be rolled out and tested o
 
 
 ## Releases
-Beta releases are automatically created by merging the dev into the master branch. This increments the version number and puthe new version to the shes tester devices.
+Beta releases are automatically created by merging the dev into the master branch. This increments the version number and makes the new version on the tester devices available.
