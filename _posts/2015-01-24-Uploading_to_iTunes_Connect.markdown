@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      "iTunes Connect and Testflight"
+title:      "Uploading Betas to iTunes Connect and Testflight Distribution"
 subtitle:   "Distribute your cool stuff"
-date:       2015-01-23 12:35:33
+date:       2015-01-24 12:35:33
 author:     "The Crew"
 header-img: "img/post-bg-03.jpg"
 tags: [continuous-delivery, jenkins]
