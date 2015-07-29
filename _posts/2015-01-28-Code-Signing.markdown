@@ -6,7 +6,7 @@ author:     "The Crew"
 tags: [ios]
 ---
 
->Note: Like mentioned in [requirements](http://ciforios.github.io/2015/04/24/Requirements/), an Apple Developer Program is required if you intend to distribute your apps via TestFlight or get them into the App Store.
+> Note: Like mentioned in [requirements](http://ciforios.github.io/2015/01/30/Requirements/), an Apple Developer Program is required if you intend to distribute your apps via TestFlight or get them into the App Store.
 
 Unlike Android's plug-and-play mechanisms for deploying software onto your development devices, Apple requires you to code sign your application before you can actually use it on a real device.
 
@@ -75,4 +75,4 @@ Once you are done it should look something like the screenshot below:
 
 ![image](/img/provisioning-profiles.png)
 
-Congratulations - now you've created everything you need and you're now able to proceed setting up your Xcode project. This will be covered in the [next post](http://ciforios.github.io/2015/05/10/Setting-Up-Xcode/) of this section.
+Congratulations - now you've created everything you need and you're now able to proceed setting up your Xcode project. This will be covered in the [next post](http://ciforios.github.io/2015/01/23/Setting-Up-Xcode/) of this section.
