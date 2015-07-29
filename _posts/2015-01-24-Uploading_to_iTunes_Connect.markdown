@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "Uploading Betas to iTunes Connect and Testflight Distribution"
-subtitle:   "Distribute your cool stuff"
+title:      "Uploading your applications to iTunes Connect using Jenkins"
+subtitle:   "Upload your builds"
 date:       2015-01-24 12:35:33
 author:     "The Crew"
 tags: [continuous-delivery, jenkins]
