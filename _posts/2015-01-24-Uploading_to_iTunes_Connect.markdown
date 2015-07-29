@@ -47,7 +47,7 @@ Last but not least we want to upload the generated ipa file to Testflight aka iT
 ```
 /path/to/altool --upload-app -f "/Users/Shared/Jenkins/.jenkins/jobs/${JOB_NAME}/workspace/build/Release-iphoneos/badgeme_${BUILD_ID}.ipa" -u %USERNAME% -p %PASSWORD%
 ```
-> Hint: Normally the path to altool is following: /Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Support/altool
+> Note: Normally the path to altool is following: /Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Support/altool
 
 What does this command do? First of all we're giving the path to a tool called **altool**. This tool is needed if you want to upload your ipa file to iTunes Connect. It's delievered with Xcode, so no additonal installations are needed.<br>
 With ```--upload-app -f``` you specify the path to your ipa file.<br>

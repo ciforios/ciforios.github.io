@@ -16,14 +16,14 @@ Jenkins is able to show JUnit test-reports in the Jenkins webinterface. To use t
 Install the script by entering the following command in your terminal: 
 
 	gem install ocunit2junit
->make sure you have [RubyGems](https://rubygems.org) installed
+> Note: make sure you have [RubyGems](https://rubygems.org) installed
 
 	
 ### 2. run iPhone Simulator
 You need to start the *iPhone Simulator* on your Jenkins user manually and let it run in background. 
 
->Otherwise tests will fail with the following error message:
->*iPhoneSimulator: Could not launch simulator: -10810*
+> Note: Otherwise tests will fail with the following error message:
+> *iPhoneSimulator: Could not launch simulator: -10810*
 
 Open the iOS Simulator by following these steps:
 
@@ -31,7 +31,7 @@ Open the iOS Simulator by following these steps:
 2. search *iOS Simulator* via spotlight
 3. open it and let it run in background forever
 
->In order to start the iPhone Simulator we the used the screen sharing tool **Screen Sharing** which is delivered with OSX.
+> Note: In order to start the iPhone Simulator we the used the screen sharing tool **Screen Sharing** which is delivered with OSX.
 
 ###Build step - xcodebuild
 To trigger automated tests after a successful build, you need to add another build step in your previously created job. 
