@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-
+    var mozjpeg = require('imagemin-mozjpeg');
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -60,6 +60,18 @@ module.exports = function(grunt) {
                 }
             },
         },
+        imagemin: { // Task
+            dist: { // Target
+                options: { // Target options
+                    optimizationLevel: 3,
+                    use: [mozjpeg()]
+                },
+                expand: true, // Enable dynamic expansion 
+                cwd: '', // Src matches are relative to this path 
+                src: ['img/**/*.{png,jpg,gif}'], // Actual patterns to match 
+                dest: ''
+            }
+        }
     });
 
     // Load the plugins.
@@ -67,8 +79,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-banner');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+
 
     // Default task(s).
     grunt.registerTask('default', ['uglify', 'less', 'usebanner']);
-
 };
