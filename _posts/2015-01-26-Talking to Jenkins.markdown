@@ -2,7 +2,7 @@
 layout:     post
 title:      "Talking to Jenkins"
 subtitle:   "Preparing Gerrit for Jenkins Integration"
-date:       2015-06-02 09:12:13
+date:       2015-01-26 09:12:13
 author:     "The Crew"
 header-img: "img/codereview-bg.jpg"
 tags: [code-review, continuous-integration]
