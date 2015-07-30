@@ -75,4 +75,4 @@ Once you are done it should look something like the screenshot below:
 
 ![image](/img/provisioning-profiles.png)
 
-Congratulations - now you've created everything you need and you're now able to proceed setting up your Xcode project. This will be covered in the [next post](http://ciforios.github.io/2015/01/29/Setting-Up-Xcode/) of this section.
+Congratulations - now you've created everything you need and you're now able to proceed setting up your Xcode project. This will be covered in the [next post](http://ciforios.github.io/2015/01/28/Setting-Up-Xcode/) of this section.

@@ -42,7 +42,8 @@ Once done and you don't see any further error messages in the terminal you can a
 
 ![image](/img/jenkins/jenkins_overview.png)
 
-<br>
+
+
 ### Make everything a little secure
 Jenkins doesn't force you to use any authentication method at all. You should take care of this yourself by activating the security settings though because Jenkins is usually reachable over the network and could be quite easily accessible without any security features.
 
@@ -108,7 +109,7 @@ In order for the notifications to actually be sent, you'll have to add a "Post-b
 ***
 **Source Code Management**
 
-* In the section "Source Code Management" select Git. For the repository URL you'll need to enter the URL of your Gerrit server concatenated with the Gerrit project name, e.g. "http://127.0.0.1:8081/Myapplication". If you don't use Gerri, just link to your Git project.
+* In the section "Source Code Management" select Git. For the repository URL you'll need to enter the URL of your Gerrit server concatenated with the Gerrit project name, e.g. "http://127.0.0.1:8081/Myapplication". If you don't use Gerrit, just link to your Git project.
 * Further changes which are needed when using Gerrit
   * You need to click on the "Advance" button and under Refspec write "$GERRIT_REFSPEC". 
   * "Branches to build" needs "$GERRIT_BRANCH" as a parameter. 

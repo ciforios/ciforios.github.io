@@ -139,16 +139,16 @@ If this is the first project you can just inherit from the default "all projects
 
 ####Cloning the project:
 From the "Projects" selection in the top bar, you can see a list of all projects by clicking onto "List" below. After clicking on one of them you'll see the options page for this project.<br>
-In the project options page you can see (amongst other settings) the URL to use for cloning the git repository like you would normally do.
+In the project options page you can see (amongst other settings) the URL to use for cloning the Git repository like you would normally do.
 
 ####Deleting Projects:
 As mentioned earlier, deleting projects isn't possible by default (Gerrit prevents you from deleting projects because they have dependencies among themselves. Thus, deleting one project in the chain could have severe ramifications for other projects).<br>
 > Note: There is a [plugin](https://gerrit-review.googlesource.com/#/admin/projects/plugins/delete-project) that allows deleting projects, but we just deleted the whole Gerrit folder and ran the init comand again.
 
 ####Git:
-Internally Gerrit sets up a fully functional git repository which you can clone and push reviews to.<br>
-Each project has a unique git URL you can see in the project options.
-> Note: If you want to set up a git replica on an external server make sure that the name of the repositories match in case you want to mirror multiple repositories without specifing a destination address for each repository. We also needed to add credentials to the Gerrit config. 
+Internally Gerrit sets up a fully functional Git repository which you can clone and push reviews to.<br>
+Each project has a unique Git URL you can see in the project options.
+> Note: If you want to set up a Git replica on an external server make sure that the name of the repositories match in case you want to mirror multiple repositories without specifing a destination address for each repository. We also needed to add credentials to the Gerrit config. 
 
 ##Permissions:
 ####Projects -> Access
@@ -164,7 +164,8 @@ You can see some of the access restrictions that we defined for our project in t
 - Pushing is prohibited
 - Patch Sets need +2 "Code-Review" and +1 "Verified" in order to pass
 
-![Access Settings in Gerrit](/img/gerrit/project_access_settings_gerrit.PNG)<br>
+![Access Settings in Gerrit](/img/gerrit/project_access_settings_gerrit.png)
+
 
 ## Pushing commits to Gerrit for reviewing
 ####Initially
@@ -175,21 +176,21 @@ Install git-review on your mac
 
 Rename the remote path of your Gerrit folder to Gerrit:
 {% highlight bash %}
-git remote rename origin gerrit
+Git remote rename origin gerrit
 {% endhighlight %}
 
 #####Creating "PatchSets" (commits that others should review):
 1. Make changes to your local files
-2. Commit your changes (git commit ...)
-3. Push your changes to Gerrit with git review
+2. Commit your changes (Git commit ...)
+3. Push your changes to Gerrit with Git review
  
 {% highlight bash %}
-git review [BRANCH]
+Git review [BRANCH]
 {% endhighlight %}
 > Note: You can also put your current working branch in the ".gitreview" file, e.g. defaultbranch=dev<br>
-> The login information to push changes to Gerrit can be found in the user settings on Gerrit. You can choose between SSH and HTTP. In case of http you have to generate another password under *YOUR USERNAME* (top right corner) > Settings  > HTTP LOGIN
+> The login information to push changes to Gerrit can be found in the user settings on Gerrit. You can choose between SSH and HTTP. In case of HTTP you have to generate another password under *YOUR USERNAME* (top right corner) > Settings  > HTTP LOGIN
 
-For more information about git review see:<br>
+For more information about Git review see:<br>
 [https://www.mediawiki.org/wiki/Gerrit/git-review](https://www.mediawiki.org/wiki/Gerrit/git-review)
 
 ###Gerrit and Branches
