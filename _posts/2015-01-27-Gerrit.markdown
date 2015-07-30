@@ -164,7 +164,7 @@ You can see some of the access restrictions that we defined for our project in t
 - Pushing is prohibited
 - Patch Sets need +2 "Code-Review" and +1 "Verified" in order to pass
 
-![Access Settings in Gerrit](/img/gerrit/project_access_settings_gerrit.png)
+![Access Settings in Gerrit](/img/gerrit/project_access_settings_gerrit.PNG)
 
 
 ## Pushing commits to Gerrit for reviewing
