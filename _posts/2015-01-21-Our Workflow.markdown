@@ -1,6 +1,7 @@
 ---
 layout:     post
 title:      "Our Workflow"
+subtitle:	"Going all the way"
 date:       2015-01-21 11:31:11
 author:     "The Crew"
 header-img: "img/flow.jpg"

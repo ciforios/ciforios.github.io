@@ -1,6 +1,7 @@
 ---
 layout:     post
 title:      "Setting up your Xcode project"
+subtitle:	"You need a project"
 date:       2015-01-28 10:55:00
 author:     "The Crew"
 tags: [ios]

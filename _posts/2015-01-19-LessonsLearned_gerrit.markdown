@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "What we learned about Gerrit"
-subtitle:	""
+subtitle:	"Please review me!"
 date:       2015-01-19 15:20:05
 author:     "The Crew"
 header-img: "img/lesson-learned.jpg"
