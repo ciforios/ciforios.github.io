@@ -79,8 +79,8 @@ You can install all of the plugins above and much more by accessing "Manage Jenk
 In order to use our freshly installed plugins, we must configure them correctly.
 
 ####Slack
-1. First you need to get a [Slack account](https://slack.com/).
-2. Then you need to configure the Jenkins [integration for Slack](https://my.slack.com/services/new/jenkins-ci). 
+1. First you need to get a [Slack account](https://slack.com/)
+2. Then you need to configure the Jenkins [integration for Slack](https://my.slack.com/services/new/jenkins-ci)
 3. After that, configure your Slack plugin. Go to "Manage Jenkins" > "Configure System". There you'll find a section about Slack "Global Slack Notifier Settings" where you can insert your settings.
 <img style="float:left" src="{{ site.url }}/img/jenkins/settingsSlack.png" /><br>
 
