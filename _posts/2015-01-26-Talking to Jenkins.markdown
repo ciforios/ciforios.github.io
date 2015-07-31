@@ -8,7 +8,7 @@ header-img: "img/codereview-bg.jpg"
 tags: [code-review, continuous-integration]
 ---
 
-####Adding Jenkins user
+###Adding Jenkins user
 In order to allow Jenkins to make changes to projects (eg. review a PatchSet based on whether it builds or not), it needs its own user account in Gerrit.
 > As discussed in the [previous post](http://ciforios.github.io/2015/01/27/Gerrit/), our accounts had to be OpenID accounts, so we had to create another Launchpad account for Jenkins using a new email address.
 
@@ -21,7 +21,7 @@ You also have to change the project settings accordingly, so that the "Non-Inter
 
 > Note: If you don't have the verified label, but would like to add it, please follow the instructions [below](#verifiedLabel).
 
-![Access Settings in Gerrit](/img/gerrit/project_access_settings_gerrit.png)
+![Access Settings in Gerrit](/img/gerrit/project_access_settings_gerrit.PNG)
 
 This can be achived by selecting the project (Projects > List > *Project Name*). This should redirect you to the access tab of the project. Then select "Edit" to edit the Access Settings.
 > Note: In case you aren't allowed to edit the settings, you might not be logged in, or you don't have admin rights.
@@ -37,7 +37,7 @@ To add the public key, hit the username in the top right corner (should be Jenki
 
 You also have to set the username of the Jenkins user. You can do that in the user settings within "Settings". This is the username you have to enter for Gerrit Trigger in Jenkins.
 
-####<div id="verifiedLabel"/>The verified label bug
+###<div id="verifiedLabel"/>The verified label bug
 
 The Jenkins Plugin "Gerrit Trigger" expects Gerrit to have the label "Verified" set, which isn't included in the Gerrit config by default.<br>
 The Gerrit label can be added in:<br>

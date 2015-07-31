@@ -8,7 +8,7 @@ header-img: "img/ci-bg.jpg"
 tags: [continuous-integration]
 ---
 
-##Preparing your system
+###Preparing your system
 Before you can start to setup a Jenkins job for automated testing you need to make sure that you've installed all dependencies.
 
 ####1. Install OCUnit2JUnit
@@ -54,14 +54,14 @@ Add the following path to the *Test reports XMLs* field.
 
 	**/test-reports/*.xml
 	
-##The final job
+###The final job
 The bottom part of your Jenkins job should finally look like this:
 
 ![image](/img/jenkins-job-testing.png)
 
 
 	
-##Result
+###Result
 As a result you should see a graph showing your test history of the project. It shows successfull (blue), failed (red) and skipped (yellow) tests.
 
 ![image](/img/test-result-trend.png)

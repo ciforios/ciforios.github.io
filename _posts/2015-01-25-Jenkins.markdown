@@ -11,7 +11,7 @@ tags: [continuous-integration]
 <img style="float:left" src="{{ site.url }}/img/jenkins/jenkinsLogo.png" />
 Within this page, we'll describe how we set up Jenkins on our server to meet our requirements. Out of all the tools that are out there we chose Jenkins because it's one of the more popular CI systems. Since it actually is so popular, you'll also find a lot of stuff on the internet on how to do certain things properly because there will have been people who already ran into similar problems. We were considering to use XCode Server from Apple as a CI but due to the restrictions to Apple we were rejecting this idea pretty fast.
 
-##Setup
+###Setup
 Download the latest Jenkins .war file from the offical [Jenkins homepage](http://jenkins-ci.org/).
 On our server, we moved the .war file into the applications folder and created a separate Jenkins folder where we kept all of the Jenkins files together. You can handle this any way you want though by moving the files to a place suitable for you.
 
@@ -45,7 +45,7 @@ Once done and you don't see any further error messages in the terminal you can a
 
 
 
-#### Make everything a little secure
+### Make everything a little secure
 Jenkins doesn't force you to use any authentication method at all. You should take care of this yourself by activating the security settings though because Jenkins is usually reachable over the network and could be quite easily accessible without any security features.
 
 In our case the following changes have been made under ```Manage Jenkins > Configure Global Security > Enable Security:```<br>
@@ -55,7 +55,7 @@ In case you use Gerrit you should also add a Jenkins user for Gerrit.
 
 Once you're finished tweaking the settings, don't forget to save all of your changes.
 
-####Install Plugins to make your life easier
+###Install Plugins to make your life easier
 The benefits of an open-source platform with a large userbase helps you again when it comes to adding additional functionality to Jenkins: There's a multitude of plugins! Below, you'll find the plugins that we thought were necessary for our system:
 
 * [**Slack Plugin**](https://wiki.jenkins-ci.org/display/JENKINS/Slack+Plugin)<br>
@@ -75,7 +75,7 @@ Instead of writing a script where you access Xcode i.e. to build your project, y
 
 You can install all of the plugins above and much more by accessing "Manage Jenkins" > "Manage Plugins". Select the "Available" tab from the overview and from there, choose any plugin that you want to install by hitting "Download now and install after restart". In the next section we'll cover the configuration for the plugins that we used.
 
-##Configuration
+###Configuration
 In order to use our freshly installed plugins, we must configure them correctly.
 
 ####Slack
@@ -94,7 +94,7 @@ Configure the Gerrit Plugin in "Manage Jenkins" > "Gerrit Trigger"<br>
 Select "Add new server" on the left and enter a name for your Gerrit server and choose "Gerrit Server with Default Configurations".<br>
 In the field "Frontend URL", enter the server address of your Gerrit including the port number - if you're working on the same machine, it could just be the localhost (e.g. http://127.0.0.1:8081). In order to connect via SSH, we need port 29418. You then need to enter the username that you added earlier in [**Preparing Gerrit for Jenkins Integration**](http://ciforios.github.io/2015/01/26/Talking%20to%20Jenkins/) - in our case "jenkins". Additionally, add the SSH Keyfile (private key) and password which you generated for Jenkins in Gerrit. Further changes can be made regarding the values which will be given from Jenkins to Gerrit once triggered.
 
-##Jobs
+###Jobs
 Now you can start setting up your Jenkins Jobs. A job can have different tasks - normally a project consists of different jobs which have different purposes like executing unit tests, building artefacts and so on.<br>
 In our case we created two separate Jobs which differentiate in a few settings.<br> 
 **1. Build and test PatchSet on dev** - Build the project and run tests<br>
@@ -102,13 +102,13 @@ In our case we created two separate Jobs which differentiate in a few settings.<
 
 For creating a new job, select "New Item" on the left side. Assign a project name, in our case "Build and test PatchSet on dev" as "Freestyle project" and select OK.
 ***
-**Slack Notifications**<br>
+####Slack Notifications
 In the first section are settings about Slack configured. We set a checkmark for "Notify Failure" and "Notify Success" so that we get notified in those two cases.
 ![image](/img/jenkins/jobSettingsSlack.png)<br>
 In order for the notifications to actually be sent, you'll have to add a "Post-build Action" > "Slack notifications". Once done, it should automatically send notifications.
 
 ***
-**Source Code Management**
+####Source Code Management
 
 * In the section "Source Code Management" select Git. For the repository URL you'll need to enter the URL of your Gerrit server concatenated with the Gerrit project name, e.g. "http://127.0.0.1:8081/Myapplication". If you don't use Gerrit, just link to your Git project.
 * Further changes which are needed when using Gerrit
@@ -119,7 +119,7 @@ In order for the notifications to actually be sent, you'll have to add a "Post-b
 ![image](/img/jenkins/jobSettingsGit.png)
 
 ***
-**Build Triggers**
+####Build Triggers
 
 As build trigger you select "Gerrit event".<br>
 
@@ -132,7 +132,7 @@ As build trigger you select "Gerrit event".<br>
 
 ![image](/img/jenkins/jobSettingsGerritTrigger.png)
 
-##Xcode Plugin
+###Xcode Plugin
 Now we setup our Xcode Plugin, therefore you need to add a new build step and select "Xcode". 
 ####General build settings
 * As **Target** you choose your Xcode scheme which you want to build for.
