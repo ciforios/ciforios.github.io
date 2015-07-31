@@ -7,7 +7,9 @@ header-img: "img/flow.jpg"
 tags: [workflow]
 ---
 
-Our overall workflow includes two stages: **Development Stage** and **Master Stage**.<br>
+Our overall workflow includes two stages: **Development Stage** and <br>
+**Master Stage**.
+
 In the **Development Stage** code is created and submitted for review. Aftwerwards Jenkins tries to build it and to run the unit tests, depending on the results Jenkins will then set the verified label of the PatchSet in Gerrit. Then the code can be reviewed by the team and, in case it does what it is supposed to do, complies with the teams regulations, it can be merged into the dev branch.
 
 The **Master Stage** includes merging the dev into the master branch. This again starts with a developer merging locally and creating a merge commit which is then submitted for review in Gerrit. In case the merge commit is accepted, the dev branch is merged into the master branch. This leads Jenkins to building the Project, creating an .IPA file and distributing it through iTunesConnect and TestFlight between testers.
