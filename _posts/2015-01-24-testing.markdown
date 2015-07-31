@@ -11,7 +11,7 @@ tags: [continuous-integration]
 ##Preparing your system
 Before you can start to setup a Jenkins job for automated testing you need to make sure that you've installed all dependencies.
 
-### 1. Install OCUnit2JUnit
+#### 1. Install OCUnit2JUnit
 Jenkins is able to show JUnit test-reports in the Jenkins webinterface. To use this functionality with an Xcode project you need to convert the test-reports of the *xcodebuild* in a JUnit-XML format. Therefore we used a script called *OCUnit2JUnit*.
 
 You can install the necessary script by entering following command in your terminal: 
@@ -20,7 +20,7 @@ You can install the necessary script by entering following command in your termi
 > Note: make sure you have [RubyGems](https://rubygems.org) installed
 
 	
-### 2. Run iPhone Simulator
+#### 2. Run iPhone Simulator
 You need to start the *iPhone Simulator* on your Jenkins ?user? manually and let it run in background. 
 
 > Note: Otherwise tests will fail with the following error message:
@@ -34,7 +34,7 @@ Open the iOS Simulator by following these steps:
 
 > Note: In order to start the iPhone Simulator remotly we used the screen sharing tool **Screen Sharing** which is delivered with OSX. 
 
-###Build step - xcodebuild
+####Build step - xcodebuild
 To trigger automated tests after a successful build, you need to add another build step in your previously created job. 
 
 1. Click on *Add build step*
@@ -45,7 +45,7 @@ To trigger automated tests after a successful build, you need to add another bui
 xcodebuild -project YourProjectName.xcodeproj -sdk iphonesimulator -scheme YourSchemeName clean test 2>&1 | ocunit2junit
 ```
 
-###Post build action - Publish JUnit test report result
+####Post build action - Publish JUnit test report result
 Additionaly you need to add a post build action to make your test-report results visible.
 
 The output of the *ocunit2junit* script is by default in a *test-reports* folder in the root directory of your build.

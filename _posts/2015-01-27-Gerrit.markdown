@@ -180,7 +180,7 @@ Rename the remote path of your Gerrit folder to Gerrit:
 Git remote rename origin gerrit
 {% endhighlight %}
 
-#####Creating "PatchSets" (commits that others should review):
+####Creating "PatchSets" (commits that others should review):
 1. Make changes to your local files
 2. Commit your changes (Git commit ...)
 3. Push your changes to Gerrit with Git review
@@ -194,7 +194,7 @@ Git review [BRANCH]
 For more information about Git review see:<br>
 [https://www.mediawiki.org/wiki/Gerrit/git-review](https://www.mediawiki.org/wiki/Gerrit/git-review)
 
-###Gerrit and Branches
+####Gerrit and Branches
 The branch to push to can be specified when submitting reviews.<br>
 Branches can be created using the Gerrit UI under Projects > List > *PROJECT_NAME* > Branches<br>
 If you create e.g. a dev branch and want to point it to the current revision of the branch with the name "master" just enter "master" in the revision field.

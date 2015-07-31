@@ -19,6 +19,6 @@ The inital idea to create this website was to give fellow developers some inform
 
 This was our guideline before we had any clue whatsoever, about how any of these systems worked (both separately and in conjunction as a whole). Our concept was to do things in a way, we thought was supposed to be the "right" way when developing a fairly big-sized software project. Reading this documentation of our progress should hopefully prevent you from running into some of the bigger problems you might encounter trying to set up a similiar pipeline for yourself.
 
-#How to use our website
+##How to use our website
 
 We'll give you a step by step tutorial for setting up your [**development IDE**](http://ciforios.github.io/2015/01/28/Setting-Up-Xcode/), adding [**code review**](http://ciforios.github.io/code-review/) and integrate an [**automated build server**](http://ciforios.github.io/continuous-integration/) including [**automated testing**](http://ciforios.github.io/2015/01/24/testing/) as well as [**deploying your beta software**](http://ciforios.github.io/continuous-delivery/) via TestFlight. But you are also good to go if you don't need a complete tutorial. Feel free if you want to have a look into each step seperately.
