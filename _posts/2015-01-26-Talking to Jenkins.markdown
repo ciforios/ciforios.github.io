@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Preparing Gerrit for Jenkins Integration"
-subtitle:   "Setting up a Gerrit Trigger"
+subtitle:   "Setting up a Gerrit trigger"
 date:       2015-01-26 09:12:13
 author:     "The Crew"
 header-img: "img/codereview-bg.jpg"
