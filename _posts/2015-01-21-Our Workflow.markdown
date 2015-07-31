@@ -7,7 +7,6 @@ header-img: "img/flow.jpg"
 tags: [workflow]
 ---
 
-## The Workflow
 Our overall workflow includes two stages: Development Stage and Master Stage.<br>
 In the Development Stage code is created and submitted for review. Aftwerwards Jenkins tries to build it and to run the unit tests, depending on the results Jenkins will then set the verified label of the PatchSet in Gerrit. Then the code can be reviewed by the team and, in case it does what it is supposed to do, complies with the teams regulations, it can be merged into the dev branch.
 
