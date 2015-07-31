@@ -3,6 +3,7 @@ layout:     post
 title:      "Code Signing"
 date:       2015-01-29 15:23:00
 author:     "The Crew"
+subtitle: 	"Certificates, AppID's, Provisioning Profiles and more ..."
 tags: [ios]
 ---
 

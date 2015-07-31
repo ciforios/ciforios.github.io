@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "What we learned about Gerrit"
-subtitle:	""
+subtitle:	"What can you expect from a code reviewing tool?"
 date:       2015-01-19 15:20:05
 author:     "The Crew"
 header-img: "img/lesson-learned.jpg"

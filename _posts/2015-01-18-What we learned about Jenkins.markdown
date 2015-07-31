@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "What we learned about Jenkins"
-subtitle:	""
+subtitle:	"Can continuous integration help you and your team?"
 date:       2015-01-18 10:06:56
 author:     "The Crew"
 header-img: "img/lesson-learned.jpg"
