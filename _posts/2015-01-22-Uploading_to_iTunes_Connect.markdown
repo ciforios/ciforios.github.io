@@ -2,7 +2,7 @@
 layout:     post
 title:      "Uploading your applications to iTunes Connect using Jenkins"
 subtitle:   "Upload your builds"
-date:       2015-01-23 12:35:33
+date:       2015-01-22 12:35:33
 author:     "The Crew"
 header-img: "img/cd-bg.jpg"
 tags: [continuous-delivery, jenkins]

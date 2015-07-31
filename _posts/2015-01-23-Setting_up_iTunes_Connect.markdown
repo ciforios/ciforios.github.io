@@ -2,7 +2,7 @@
 layout:     post
 title:      "Setting up iTunes Connect"
 subtitle:   "Distribute your cool stuff"
-date:       2015-01-24 12:35:33
+date:       2015-01-23 12:35:33
 author:     "The Crew"
 header-img: "img/cd-bg.jpg"
 tags: [continuous-delivery, ios]
