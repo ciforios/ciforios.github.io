@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Automated testing with Xcode and Jenkins"
-subtitle:   "Setting up a the Xcode-Project and a Jenkins job"
+subtitle:   "Setting up a Xcode-Project and a Jenkins job"
 date:       2015-01-24 11:20:00
 author:     "The Crew"
 header-img: "img/ci-bg.jpg"
@@ -11,7 +11,7 @@ tags: [continuous-integration]
 ##Preparing your system
 Before you can start to setup a Jenkins job for automated testing you need to make sure that you've installed all dependencies.
 
-#### 1. Install OCUnit2JUnit
+####1. Install OCUnit2JUnit
 Jenkins is able to show JUnit test-reports in the Jenkins webinterface. To use this functionality with an Xcode project you need to convert the test-reports of the *xcodebuild* in a JUnit-XML format. Therefore we used a script called *OCUnit2JUnit*.
 
 You can install the necessary script by entering following command in your terminal: 
@@ -20,15 +20,15 @@ You can install the necessary script by entering following command in your termi
 > Note: make sure you have [RubyGems](https://rubygems.org) installed
 
 	
-#### 2. Run iPhone Simulator
-You need to start the *iPhone Simulator* on your Jenkins ?user? manually and let it run in background. 
+####2. Run iPhone Simulator
+You need to start the *iPhone Simulator* on your Jenkins manually and let it run in background. 
 
 > Note: Otherwise tests will fail with the following error message:
 > *iPhoneSimulator: Could not launch simulator: -10810*
 
 Open the iOS Simulator by following these steps:
 
-1. Login to your Jenkins ?user? on your build server
+1. Login to your Jenkins on your build server
 2. Search *iOS Simulator* via spotlight
 3. Open your iOS Simulator and let it run in background forever
 
