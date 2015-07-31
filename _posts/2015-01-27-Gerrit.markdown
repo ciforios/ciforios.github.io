@@ -8,8 +8,6 @@ header-img: "img/codereview-bg.jpg"
 tags: [code-review]
 ---
 
-##Setting up Gerrit
-
 The very first thing you'll want to do is to create a new user on the machine you're intending to run Gerrit on. In our case, we created a user called "gerrit". Then, log into that user.
 
 The next thing you'll have to do is download the official java package.<br>
@@ -117,7 +115,7 @@ Opening http://mrs.mmlab.mintern.mi.hdm-stuttgart.de:8081/#/admin/projects/ ...O
 
 Now the Gerrit server should be live and available both via Server IP + specified port and with the "Canonical URL" that is shown at the end of the setup dialog.
 
-##Login
+####Login
 After setting up the server the next thing you'll probably want to do is open the Gerrit page and log in (at least that's the first thing we wanted to do).
 
 > Note: At this point we ran into a little problem:<br>
@@ -152,14 +150,11 @@ Each project has a unique Git URL you can see in the project options.
 > Note: If you want to set up a Git replica on an external server make sure that the name of the repositories match in case you want to mirror multiple repositories without specifing a destination address for each repository. We also needed to add credentials to the Gerrit config. 
 
 ##Permissions
-####Projects -> Access
-Can be set for groups, project owners, admins and registered users.
+Can be set for groups, project owners, admins and registered users in "Projects" > "Access".
 Permissions include things like: Who is allowed to read, push or submit changes. 
 In addition it can be defined, how much influence certain groups should have over the reviewing process.
 Permitted users can create projects.
 
-
-#### Access
 You can see some of the access restrictions that we defined for our project in the screenshot below. Among the important ones are:
 
 - Pushing is prohibited
@@ -168,9 +163,8 @@ You can see some of the access restrictions that we defined for our project in t
 ![Access Settings in Gerrit](/img/gerrit/project_access_settings_gerrit.PNG)
 
 
-## Pushing commits to Gerrit for reviewing
-####Initially
-Install git-review on your mac 
+####Pushing commits to Gerrit for reviewing
+At first, install git-review on your mac
 
 	brew install git-review
 > Note: For installation on other operating systems see: http://www.mediawiki.org/wiki/Gerrit/git-review
@@ -180,8 +174,7 @@ Rename the remote path of your Gerrit folder to Gerrit:
 Git remote rename origin gerrit
 {% endhighlight %}
 
-
-####Creating "PatchSets" (commits that others should review)
+#####Creating "PatchSets" (commits that others should review)
 1. Make changes to your local files
 2. Commit your changes (Git commit ...)
 3. Push your changes to Gerrit with Git review
@@ -195,7 +188,7 @@ Git review [BRANCH]
 For more information about Git review see:<br>
 [https://www.mediawiki.org/wiki/Gerrit/git-review](https://www.mediawiki.org/wiki/Gerrit/git-review)
 
-####Gerrit and Branches
+#####Gerrit and Branches
 The branch to push to can be specified when submitting reviews.<br>
 Branches can be created using the Gerrit UI under Projects > List > *PROJECT_NAME* > Branches<br>
 If you create e.g. a dev branch and want to point it to the current revision of the branch with the name "master" just enter "master" in the revision field.
