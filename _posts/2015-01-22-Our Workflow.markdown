@@ -4,6 +4,7 @@ title:      "Our Workflow"
 subtitle:   "This is how we flow"
 date:       2015-01-22 11:31:11
 author:     "The Crew"
+header-img: "img/flow.jpg"
 tags: [workflow]
 ---
 

@@ -4,6 +4,7 @@ title:      "What we learned about Jenkins"
 subtitle:	""
 date:       2015-01-19 10:06:56
 author:     "The Crew"
+header-img: "img/lesson-learned.jpg"
 tags: [lessons-learned, continuous-integration]
 ---
 
