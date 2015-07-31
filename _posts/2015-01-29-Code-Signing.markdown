@@ -1,6 +1,7 @@
 ---
 layout:     post
 title:      "Code Signing"
+subtitle:	"Please sign here and there"
 date:       2015-01-29 15:23:00
 author:     "The Crew"
 subtitle: 	"Certificates, AppID's, Provisioning Profiles and more ..."
