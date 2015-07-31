@@ -1,14 +1,13 @@
 ---
 layout:     post
-title:      "Talking to Jenkins"
-subtitle:   "Preparing Gerrit for Jenkins Integration"
+title:      "Preparing Gerrit for Jenkins Integration"
+subtitle:   "Setting up a Gerrit Trigger"
 date:       2015-01-26 09:12:13
 author:     "The Crew"
 header-img: "img/codereview-bg.jpg"
 tags: [code-review, continuous-integration]
 ---
 
-## Setting up Gerrit for Jenkins (Gerrit Trigger)
 ####Adding Jenkins user
 In order to allow Jenkins to make changes to projects (eg. review a PatchSet based on whether it builds or not), it needs its own user account in Gerrit.
 > As discussed in the [previous post](http://ciforios.github.io/2015/01/27/Gerrit/), our accounts had to be OpenID accounts, so we had to create another Launchpad account for Jenkins using a new email address.

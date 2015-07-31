@@ -16,7 +16,7 @@ Before you can upload any compiled code you first have to create an iTunes Conne
 Head over to [iTunes Connect](https://itunesconnect.apple.com/), log in with your developer account and add a new entry for your application in the "My Apps" section.
 
 ####Uploading your app to iTunes Connect
-We chose to upload our builds automatically to iTunes Connect by using a Jenkins Job. This job is described in the [following post](http://ciforios.github.io/2015/01/23/Uploading_to_iTunes_Connect/) in detail. If you don't need an automated upload-job, you might as well do this manually by uploading your betas from within Xcode.
+We chose to upload our builds automatically to iTunes Connect by using a Jenkins Job. This job is described in the [following post](http://ciforios.github.io/2015/01/22/Uploading_to_iTunes_Connect/) in detail. If you don't need an automated upload-job, you might as well do this manually by uploading your betas from within Xcode.
 
 Once you've uploaded your first build, don't forget to enable your application for TestFlight Beta Testing by triggering the intended switch in My Apps > "Your Application" > Prerelease > Builds.
 
