@@ -4,6 +4,7 @@ title:      "Requirements"
 subtitle:	"All you need is ..."
 date:       2015-01-30 14:12:00
 author:     "The Crew"
+header-img: "img/introduction.jpg"
 tags: [introduction]
 ---
 

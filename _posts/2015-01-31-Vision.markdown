@@ -4,6 +4,8 @@ title:      "What Is This All About?"
 subtitle:   "Setting up a continuous integration pipeline for iOS development"
 date:       2015-01-31 11:20:00
 author:     "The Crew"
+header-img: "img/introduction.jpg"
+
 tags: [introduction]
 ---
 
