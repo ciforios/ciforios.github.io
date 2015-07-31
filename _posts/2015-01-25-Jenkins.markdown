@@ -79,8 +79,8 @@ You can install all of the plugins above and much more by accessing "Manage Jenk
 In order to use our freshly installed plugins, we must configure them correctly.
 
 ####Slack
-1. First you need to get a Slack account: [https://slack.com/](https://slack.com/).
-2. Then you need to configure the Jenkins integration for Slack: [https://my.slack.com/services/new/jenkins-ci](https://my.slack.com/services/new/jenkins-ci). 
+1. First you need to get a [Slack account](https://slack.com/).
+2. Then you need to configure the Jenkins [integration for Slack](https://my.slack.com/services/new/jenkins-ci). 
 3. After that, configure your Slack plugin. Go to "Manage Jenkins" > "Configure System". There you'll find a section about Slack "Global Slack Notifier Settings" where you can insert your settings.
 <img style="float:left" src="{{ site.url }}/img/jenkins/settingsSlack.png" /><br>
 
@@ -92,7 +92,7 @@ In order for the plugin to use the command line tools that Xcode provides, you m
 ####Gerrit Trigger
 Configure the Gerrit Plugin in "Manage Jenkins" > "Gerrit Trigger"<br>
 Select "Add new server" on the left and enter a name for your Gerrit server and choose "Gerrit Server with Default Configurations".<br>
-In the field "Frontend URL", enter the server address of your Gerrit including the port number - if you're working on the same machine, it could just be the localhost (e.g. http://127.0.0.1:8081). In order to connect via SSH, we need port 29418. You then need to enter the username that you added earlier in [**Gerrit for Jenkins**](http://ciforios.github.io/2015/06/02/Gerrit-for-jenkins/) - in our case jenkins. Additionally, add the SSH Keyfile (private key) and password which you generated for Jenkins in Gerrit. Further changes can be made regarding the values which will be given from Jenkins to Gerrit once triggered.
+In the field "Frontend URL", enter the server address of your Gerrit including the port number - if you're working on the same machine, it could just be the localhost (e.g. http://127.0.0.1:8081). In order to connect via SSH, we need port 29418. You then need to enter the username that you added earlier in [**Gerrit for Jenkins**](http://ciforios.github.io/2015/01/26/Talking%20to%20Jenkins/) - in our case "jenkins". Additionally, add the SSH Keyfile (private key) and password which you generated for Jenkins in Gerrit. Further changes can be made regarding the values which will be given from Jenkins to Gerrit once triggered.
 
 ###Jobs
 Now you can start setting up your Jenkins Jobs. A job can have different tasks - normally a project consists of different jobs which have different purposes like executing unit tests, building artefacts and so on.<br>
@@ -137,7 +137,7 @@ Now we setup our Xcode Plugin, therefore you need to add a new build step and se
 ####General build settings
 * As **Target** you choose your Xcode scheme which you want to build for.
 * For **Configuration** we chose "Debug" for development purposes. 
-* Select **Pack application and build .IPA** and choose a filename.
+* Select **Pack application and build .ipa** and choose a filename.
 
 ![image](/img/jenkins/xcode_dev_job_general_settings.png)
 
