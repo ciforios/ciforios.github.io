@@ -45,7 +45,7 @@ Once done and you don't see any further error messages in the terminal you can a
 
 
 
-### Make everything a little secure
+### Improve security
 Jenkins doesn't force you to use any authentication method at all. You should take care of this yourself by activating the security settings though because Jenkins is usually reachable over the network and could be quite easily accessible without any security features.
 
 In our case the following changes have been made under ```Manage Jenkins > Configure Global Security > Enable Security:```<br>

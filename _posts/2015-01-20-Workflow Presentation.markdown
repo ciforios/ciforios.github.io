@@ -7,7 +7,7 @@ author:     "The Crew"
 header-img: "img/flow.jpg"
 tags: [workflow]
 ---
-##Presentation of our CI pipeline and workflow
+###Presentation of our CI pipeline and workflow
 
 In the context of creating this project we summarized our workflow and some other aspects and thoughts to show it in our final presentation of our lecture.
 

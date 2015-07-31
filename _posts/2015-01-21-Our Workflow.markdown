@@ -18,7 +18,7 @@ The **Master Stage** includes merging the dev into the master branch. This again
 ![Workflow](/img/workflow-master.jpg)
 
 
-##Branching
+###Branching
 
 We decided to go with a simple dev and master branching scheme. The dev branch contains the most current work, but should still only contain code that allows the app to be built.<br>
 The master contains the newest, stable code which can be rolled out and tested on real devices. 
@@ -27,5 +27,5 @@ The master contains the newest, stable code which can be rolled out and tested o
 
 
 
-##Releases
+###Releases
 Beta releases are automatically created by merging the dev into the master branch. This increments the version number and makes the new version on tester devices available.

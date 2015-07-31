@@ -15,12 +15,12 @@ Before you can upload any compiled code you first have to create an iTunes Conne
 
 Head over to [iTunes Connect](https://itunesconnect.apple.com/), log in with your developer account and add a new entry for your application in the "My Apps" section.
 
-####Uploading your app to iTunes Connect
+###Uploading your app to iTunes Connect
 We chose to upload our builds automatically to iTunes Connect by using a Jenkins Job. This job is described in the [following post](http://ciforios.github.io/2015/01/22/Uploading_to_iTunes_Connect/) in detail. If you don't need an automated upload-job, you might as well do this manually by uploading your betas from within Xcode.
 
 Once you've uploaded your first build, don't forget to enable your application for TestFlight Beta Testing by triggering the intended switch in My Apps > "Your Application" > Prerelease > Builds.
 
-####Inviting internal TestFlight beta testers
+###Inviting internal TestFlight beta testers
 In general there are two kinds of testers for your application. You can choose to invite internal or external testers. Internal testers are limited to a maximum of 25 compared to a maximum of 1000 people for external testers.
 
 > Note: Distribution to external testers requires a review of your app by Apple. This is why we chose to use interal testers only.

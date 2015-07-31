@@ -163,7 +163,7 @@ You can see some of the access restrictions that we defined for our project in t
 ![Access Settings in Gerrit](/img/gerrit/project_access_settings_gerrit.PNG)
 
 
-####Pushing commits to Gerrit for reviewing
+###Pushing commits to Gerrit for reviewing
 At first, install git-review on your mac
 
 	brew install git-review

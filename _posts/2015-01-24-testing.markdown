@@ -34,7 +34,7 @@ Open the iOS Simulator by following these steps:
 
 > Note: In order to start the iPhone Simulator remotly we used the screen sharing tool **Screen Sharing** which is delivered with OSX. 
 
-####Build step - xcodebuild
+###Build step - xcodebuild
 To trigger automated tests after a successful build, you need to add another build step in your previously created job. 
 
 1. Click on *Add build step*
@@ -45,7 +45,7 @@ To trigger automated tests after a successful build, you need to add another bui
 xcodebuild -project YourProjectName.xcodeproj -sdk iphonesimulator -scheme YourSchemeName clean test 2>&1 | ocunit2junit
 ```
 
-####Post build action - Publish JUnit test report result
+###Post build action - Publish JUnit test report result
 Additionaly you need to add a post build action to make your test-report results visible.
 
 The output of the *ocunit2junit* script is by default in a *test-reports* folder in the root directory of your build.

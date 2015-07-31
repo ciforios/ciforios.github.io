@@ -8,7 +8,7 @@ header-img: "img/lesson-learned.jpg"
 tags: [lessons-learned, code-review]
 ---
 
-## A quick summary of our experiences with Gerrit
+### A quick summary of our experiences with Gerrit
 
 Generally speaking, Gerrit gives you a handy way to create and **manage Git repositories** internally. This means that you won't have to use external services like BitBucket or other similar sites. It offers **web-based code reviewing** as its main feature and excels at that: You can see a side-by-side comparison for any file in a repository, add comments / annotations to submitted work from your fellow developers and enables you to change the source code in the browser before saving it to the repository, if necessary.
 
