@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Uploading your applications to iTunes Connect using Jenkins"
-subtitle:   "Upload your builds"
+subtitle:   "Setting up a Jenkins job"
 date:       2015-01-22 12:35:33
 author:     "The Crew"
 header-img: "img/cd-bg.jpg"
